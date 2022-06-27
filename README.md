@@ -1,8 +1,15 @@
 ![Green Brown Foliage Rip Paper Garden Daily Vlog YouTube Channel Art Banner](https://user-images.githubusercontent.com/106018819/175869801-63a0fec0-57cd-428c-89e5-dc2a9823daca.png)
 
 ________________________________________________________________________________________________________________________________________________________
-                                                         IN MAINTENANCE
+                                                       IN MAINTENANCE!
 ________________________________________________________________________________________________________________________________________________________
+
+PROGRESS :
+
+![20%](https://us-central1-progress-markdown.cloudfunctions.net/progress/20)
+
+
+
 
 FRAMEWORK, LANGUAGE, DATABASE & LIBRARY :
 
