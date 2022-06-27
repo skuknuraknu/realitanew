@@ -21,7 +21,7 @@
     <link id="theme" rel="stylesheet" type="text/css }}" media="all" href="{{ asset('assets/css/color1.css') }}" />
     <link href="{{ asset('assets/switcher/css/switcher.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/switcher/demo.css') }}" rel="stylesheet" />
-    @yield('stylesheets')
+    @stack('yss')
 </head>
 <body class="app sidebar-mini ltr">
      <!-- Switcher -->
@@ -341,54 +341,36 @@
         </div>
     </div>
 
-        <script src="{{ asset('assets/plugins/jquery/jquery.min.html') }}"></script>
-        <script src="{{ asset('assets/plugins/bootstrap/js/popper.min.html') }}"></script>
-        <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.html') }}"></script>
-        <script src="{{ asset('assets/plugins/input-mask/jquery.mask.min.js') }}"></script>
-        <script src="{{ asset('assets/plugins/sidemenu/sidemenu.js') }}"></script>
-        <script src="{{ asset('assets/plugins/sidebar/sidebar.js') }}"></script>
-        <script src="{{ asset('assets/plugins/p-scroll/perfect-scrollbar.html') }}"></script>
-        <script src="{{ asset('assets/plugins/p-scroll/pscroll.html') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery/jquery.min.html') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap/js/popper.min.html') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.html') }}"></script>
+    <script src="{{ asset('assets/plugins/input-mask/jquery.mask.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/sidemenu/sidemenu.js') }}"></script>
+    <script src="{{ asset('assets/plugins/sidebar/sidebar.js') }}"></script>
+    <script src="{{ asset('assets/plugins/p-scroll/perfect-scrollbar.html') }}"></script>
+    <script src="{{ asset('assets/plugins/p-scroll/pscroll.html') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-sparkline/jquery.sparkline.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/circle-progress/circle-progress.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/select2/select2.full.min.html') }}"></script>
     <script src="{{ asset('assets/js/select2.html') }}"></script>
-
-    <!-- PIETY CHART JS-->
     <script src="{{ asset('assets/plugins/peitychart/jquery.peity.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/peitychart/peitychart.init.html') }}"></script>
-
-    <!-- INTERNAL CHARTJS CHART JS-->
     <script src="{{ asset('assets/plugins/chart/Chart.bundle.html') }}"></script>
     <script src="{{ asset('assets/plugins/chart/rounded-barchart.html') }}"></script>
     <script src="{{ asset('assets/plugins/chart/utils.html') }}"></script>
-
-    <!-- INTERNAL SELECT2 JS -->
     <script src="{{ asset('assets/plugins/select2/select2.full.min.html') }}"></script>
-
-    <!-- INTERNAL Data tables js-->
     <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.html') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/dataTables.responsive.min.html') }}"></script>
-
-    <!-- INTERNAL APEXCHART JS -->
     <script src="{{ asset('assets/js/apexcharts.html') }}"></script>
     <script src="{{ asset('assets/plugins/apexchart/irregular-data-series.html') }}"></script>
-
-    <!-- C3 CHART JS -->
     <script src="{{ asset('assets/plugins/charts-c3/d3.v5.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/charts-c3/c3-chart.html') }}"></script>
-
-    <!-- CHART-DONUT JS -->
     <script src="{{ asset('assets/js/charts.html') }}"></script>
-
-    <!-- INTERNAL Flot JS -->
     <script src="{{ asset('assets/plugins/flot/jquery.flot.html') }}"></script>
     <script src="{{ asset('assets/plugins/flot/jquery.flot.fillbetween.html') }}"></script>
     <script src="{{ asset('assets/plugins/flot/chart.flot.sampledata.html') }}"></script>
     <script src="{{ asset('assets/plugins/flot/dashboard.sampledata.html') }}"></script>
-
-    <!-- INTERNAL Vector js -->
     <script src="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.html') }}"></script>
     <script src="{{ asset('assets/js/index.html') }}"></script>
     <script src="{{ asset('assets/js/index1.html') }}"></script>
@@ -399,7 +381,6 @@
     <script src="{{ asset('assets/plugins/select2/select2.full.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/edit-table/bst-edittable.js') }}"></script>
     <script src="{{ asset('assets/plugins/edit-table/edit-table.js') }}"></script>
-
     @stack('scripts')
     </body>
 </html>

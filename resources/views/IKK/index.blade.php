@@ -13,9 +13,9 @@
                      <h3 class="card-title">Indikator Kinerja Kegiatan</h3>
                 </div>
                 <div class="card-body">
-                <button id="table2-new-row-button" class="btn btn-primary mb-4"> Add New Row</button>
+                <button id="btn_addRow" class="btn btn-primary mb-4"> Add New Row</button>
                 <div class="table-responsive">
-                <table class="table table-bordered border mb-0" id="new-edit">
+                <table class="tabel-ikk table table-bordered border mb-0" id="new-edit">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -52,8 +52,8 @@
                                         class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span>
                                         <span class="save_btn"><i role="button"
                                         class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span>
-                                        <span class="new_btn"><i role="button"
-                                        class="bg-success px-2 mx-1 py-2 fa-solid fe fe-x-circle"></i></span>
+                                        <span class="copy_btn"><i role="button"
+                                        class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span>
                                     </div>
                                 </td>
                             </tr>
@@ -70,6 +70,10 @@
 @endsection
 
 {{-- `https://stackoverflow.com/questions/44674255/how-to-use-directive-push-in-blade-template-laravel` --}}
+@push('yss')
+    @include('IKK.css')
+@endpush
+
 @push('scripts')
     @include('IKK.scripts')
 @endpush

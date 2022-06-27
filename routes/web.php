@@ -16,6 +16,7 @@ use App\Http\Controllers\IKKController;
 // ~~ Routing untuk Halaman Indikator Kinerja Kegiatan
 Route::get('/IKK',[IKKController::class, 'index'])->name('IKK.index');
 Route::post('/IKK/add',[IKKController::class, 'add'])->name('ikk.add');
+Route::post('/IKK/del',[IKKController::class, 'del'])->name('ikk.del');
 
 Route::get('/', function () {
     return view('welcome');
