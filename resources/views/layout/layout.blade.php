@@ -11,7 +11,7 @@
 
     <!-- title -->
     <title>@yield('title')</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/brand/favicon.ico') }}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/unsyiah.ico') }}"/>
     <link id="style" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/dark-style.css') }}" rel="stylesheet" />
@@ -340,7 +340,7 @@
             @include('layout.footer')
         </div>
     </div>
-
+   
     <script src="{{ asset('assets/plugins/jquery/jquery.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/popper.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.html') }}"></script>
@@ -381,6 +381,24 @@
     <script src="{{ asset('assets/plugins/select2/select2.full.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/edit-table/bst-edittable.js') }}"></script>
     <script src="{{ asset('assets/plugins/edit-table/edit-table.js') }}"></script>
+
+    <!-- DATA TABLE JS-->
+    <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.html') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.html') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/buttons.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/jszip.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/buttons.colVis.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/dataTables.responsive.min.html') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/js/table-data.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('scripts')
     </body>
 </html>

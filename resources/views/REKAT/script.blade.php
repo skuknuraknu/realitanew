@@ -1,8 +1,9 @@
 
 <script type="text/javascript">
 // Disarankan ngoding sambil mendengar lagu watashi psikopat ~ 🎵Unravel ♫
-	$( document ).ready(function() {
-		let tabel = $('.tabel-ikk').DataTable();
+	$(document).ready(function() {
+
+
 		//Saat tombol save di klik
     	$(document).on('click', ".save_btn", function(e){
     		//Mengambil konten / isi dari setiap cell tabel
@@ -10,15 +11,17 @@
             	/*Mendefinisikan variabel menggunakan `let`
             	variabel - variabel dibawah berbentuk array.
 				*/
-				let id 						   = setiapBaris[0]
-                let kd_ss 					   = setiapBaris[1]
-                let sasaran 				   = setiapBaris[2]
-                let kd_ikk					   = setiapBaris[3]
-                let indikator_kinerja_kegiatan = setiapBaris[4]
-                let kd_program 				   = setiapBaris[5]
-                let program 				   = setiapBaris[6]
-                let kd_keg 				       = setiapBaris[7]
-                let rincian_kegiatan 		   = setiapBaris[8]
+				let id 							= setiapBaris[0]
+				let kd_ikk 					    = $(this).closest('tr').find('select').val()
+				let indikator_kinerja_kegiatan  = setiapBaris[2]
+				let kk_mendikbud				= setiapBaris[3]
+				let kk_menkeu 					= setiapBaris[4]
+				let satuan						= setiapBaris[5]
+				let bobot						= setiapBaris[10]
+				let tw_1 						= setiapBaris[6]
+        		let tw_2 						= setiapBaris[7]
+        		let tw_3  						= setiapBaris[8] 
+        		let tw_4 						= setiapBaris[9] 
                 //akhir dari pendefinisian variabel
 
                 /*
@@ -32,7 +35,7 @@
 	            	   Karena disini mau insert, jadi type nya post
 	            	*/
 	                type:'POST',
-		            url:" {{ route('ikk.add') }} ",
+		            url:" {{ route('rekat.add') }} ",
 		            //Data dibawah asalnya dimulai dari baris 12 di atas
 	                data:{
 	                	/* Untuk routing post, harus pakai csrf token
@@ -40,14 +43,16 @@
 	                	*/
 		                "_token": "{{ csrf_token() }}"
 		                ,id
-		                ,kd_ss
-		                ,sasaran
 		                ,kd_ikk
 		                ,indikator_kinerja_kegiatan
-		                ,kd_program
-		                ,program
-		                ,kd_keg
-		                ,rincian_kegiatan
+						,kk_mendikbud
+						,kk_menkeu
+						,satuan
+						,bobot
+		                ,tw_1
+        				,tw_2 
+        				,tw_3
+        				,tw_4
 	                },
 	                //kalo respon dari server sukses :
                     success:function(data){
@@ -76,7 +81,6 @@
             	~ Untuk menghapus data cukup mengirimkan id saja ke server ~
 				*/
 				let id = setiapBaris[0]
-				let kd_ikk = setiapBaris[3]
 				//akhir dari pendefinisian variabel
 
 			Swal.fire({
@@ -94,11 +98,10 @@
 			            	Karena disini mau DELETE, jadi type nya post
 			            */
 						type:'POST',
-						url:" {{ route('ikk.del') }} ",
+						url:" {{ route('rekat.del') }} ",
 						data:{
 						 "_token": "{{ csrf_token() }}"
 						 ,id
-						 ,kd_ikk
 						},
 						//kalo respon dari server sukses :
 						success:function(data){
@@ -150,15 +153,50 @@
 
 		// Fungsi untuk membuat data data berbentuk tr td dari sebuah tabel html
 		$(document).on('click', "#btn_addRow", function(e){
+	
 			const barisBaru = () => {
-    			let data ='<tr> <td></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td><td contenteditable="true"></td> <td contenteditable="true"></td> <td><div class="btn-group"><span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span><span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span><span class="new_btn"><i role="button" class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span><span class="add_btn"><i role="button" class="bg-warning px-2 mx-1 py-2 fa-solid fe fe-plus"></i></span> </div></td></tr>';
+    		let data ='';
     			return data;
 			};
 			/* Append data baris ke kolom yg paling bawah
 			Yaitu tabel dengan id `tabel-ikk`
 			*/
-			$('.tabel-ikk').append(barisBaru())
+			$('.tabel-rekat').append(barisBaru())
 		})
+
+		 			//ONCHANGE SELECT IK
+       				 $(document).on('change', ".kd_ikk",function(e){
+                    let kd_ikk = $(this).closest('tr').find('select.kd_ikk').val()
+                    let indikator = $(this).closest('tr').find('td.indikator_kinerja_kegiatan')
+                   	let kd_program = $(this).closest('tr').find('select.kd_program').val()
+                     $.ajax({
+                           type:'GET',
+                           url:"{{ route('rekat.get') }}",
+                           data:{
+                             "_token": "{{ csrf_token() }}",
+                            kd_ikk,
+                            },
+                           success:function(data){
+                            console.log(data)
+							 if(data[0][0] == null){
+	                              $('.kd_program').empty();
+	                              let option = new Option("Pilih", "-"); $('.kd_program').append($(option));
+	                              }
+								indikator.text('')
+								indikator.text(data[0][0].indikator_kinerja_kegiatan)
+								
+	                            $('.kd_program').empty();
+								let option = new Option("Pilih", "-"); $('.kd_program').append($(option));
+	                                 for(let i = 0;i< data.length;i++){
+	                                        let option = new Option(data[1][i].kd_program, data[1][i].kd_program);
+	                                        $('.kd_program').append(option)
+	                                }
+
+                            } //
+                        });
+                 })
+
+
 
  }); //akhir dari document ready 🤗
 </script>

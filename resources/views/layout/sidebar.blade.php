@@ -4,11 +4,11 @@
                 <div class="app-sidebar">
                     <div class="side-header">
                         <a class="header-brand1" href="index.html">
-                            <p>realtia</p>
-                            {{-- <img src="assets/img/unsyiah.png" class="img-fluid desktop-logo" alt="logo" width="40px"> --}}
-                           {{--  <img src="assets/images/brand/logo-1.png" class="header-brand-img toggle-logo" alt="logo">
-                            <img src="assets/images/brand/logo-2.png" class="header-brand-img light-logo" alt="logo">
-                            <img src="assets/images/brand/logo-3.png" class="header-brand-img light-logo1" alt="logo"> --}}
+                            {{-- <img src="assets/img/unsyiah.png" width="150"> --}}
+                            <img src="{{ asset('assets/img/usk.png') }}" class="img-fluid desktop-logo" alt="logo" width="200">
+                            {{-- <img src="assets/img/usk_teks.png" class="header-brand-img toggle-logo" alt="logo"> --}}
+                            {{-- <img src="assets/img/usk_teks.png" class="header-brand-img light-logo" alt="logo"> --}}
+                            {{-- <img src="assets/images/brand/logo-3.png" class="header-brand-img light-logo1" alt="logo"> --}}
                         </a>
                         <!-- LOGO -->
                     </div>
@@ -19,15 +19,35 @@
                                 <h3>Main</h3>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="index.html"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Dashboard</span></a>
+                                <a class="side-menu__item" data-bs-toggle="slide" href="/"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Dashboard</span></a>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Data Center</span><i class="angle fe fe-chevron-right"></i></a>
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li>
-                                    <li><a href="{{ route('IKK.index')}}" class="slide-item">Indikator Kinerja Kegiatan</a></li>
-                                    <li><a href="editprofile.html" class="slide-item"> </a></li>
-                                    <li><a href="notify-list.html" class="slide-item"> </a></li>
+                                    {{-- <li><a href="{{ route('ikk.index')}}" class="slide-item">Indikator Kinerja Kegiatan</a></li> --}}
+                                    <li><a href="{{ route('ikk.index')}}" class="slide-item ikk_btn">Indikator Kinerja Kegiatan</a></li>
+                                    <li><a href="{{ route('kkm.index')}}" class="slide-item">Kontrak Kinerja Kementerian</a></li>
+                                    <li><a href="{{ route('rangka.index')}}"  class="slide-item">Rancangan Anggaran</a></li>
+                                </ul>
+                            </li>  
+
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Data Creator</span><i class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li>
+                                    {{-- <li><a href="{{ route('ikk.index')}}" class="slide-item">Indikator Kinerja Kegiatan</a></li> --}}
+                                    <li><a href="{{ route('perkin.index')}}" class="slide-item ikk_btn">Perkin</a></li>
+                                    <li><a href="{{ route('rekat.index')}}" class="slide-item ikk_btn">RKT</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Data Print</span><i class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li>
+                                    {{-- <li><a href="{{ route('ikk.index')}}" class="slide-item">Indikator Kinerja Kegiatan</a></li> --}}
+                                    <li><a href="{{ route('perkinReport.index')}}" class="slide-item ikk_btn">Perkin</a></li>
                                 </ul>
                             </li>
                         </ul>

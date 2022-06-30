@@ -2,6 +2,4 @@
 	table tr td{
 		font-size: 13px;
 	}
-
-</style>
 </style>

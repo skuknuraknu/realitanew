@@ -1,8 +1,7 @@
-
 <script type="text/javascript">
 // Disarankan ngoding sambil mendengar lagu watashi psikopat ~ 🎵Unravel ♫
 	$( document ).ready(function() {
-		let tabel = $('.tabel-ikk').DataTable();
+		let tabel = $('.tabel-rangka').DataTable();
 		//Saat tombol save di klik
     	$(document).on('click', ".save_btn", function(e){
     		//Mengambil konten / isi dari setiap cell tabel
@@ -10,20 +9,25 @@
             	/*Mendefinisikan variabel menggunakan `let`
             	variabel - variabel dibawah berbentuk array.
 				*/
-				let id 						   = setiapBaris[0]
-                let kd_ss 					   = setiapBaris[1]
-                let sasaran 				   = setiapBaris[2]
-                let kd_ikk					   = setiapBaris[3]
-                let indikator_kinerja_kegiatan = setiapBaris[4]
-                let kd_program 				   = setiapBaris[5]
-                let program 				   = setiapBaris[6]
-                let kd_keg 				       = setiapBaris[7]
-                let rincian_kegiatan 		   = setiapBaris[8]
+				let id		    = setiapBaris[0]
+		        let kd_keg		= setiapBaris[1]
+		        let nama_keg	= setiapBaris[2]
+		        let kd_kro		= setiapBaris[3]
+		        let nama_kro	= setiapBaris[4]
+		        let kd_ro		= setiapBaris[5]
+		        let nama_ro		= setiapBaris[6]
+		        let kd_kp		= setiapBaris[7]
+		        let nama_kp		= setiapBaris[8]
+		        let kd_sk		= setiapBaris[9]
+		        let nama_sk		= setiapBaris[10]
+		        let kd_ak		= setiapBaris[11]
+		        let nama_ak		= setiapBaris[12]
+		        let kd_mak		= setiapBaris[13]
                 //akhir dari pendefinisian variabel
 
                 /*
-				Mengirim data yang nantinya akan diproses ke server melalui route `ikk.add` melalui ajax(Disinilah ajax diperlukan)
-				`ikk.add` sudah didefinisikan di folder routes/web.php 
+				Mengirim data yang nantinya akan diproses ke server melalui route `rangka.add` melalui ajax(Disinilah ajax diperlukan)
+				`rangka.add` sudah didefinisikan di folder routes/web.php 
 				baca lebih lanjut `https://www.maribelajarcoding.com/2019/12/crud-php-ajax-sederhana.html`
                 */
 	            $.ajax({
@@ -32,7 +36,7 @@
 	            	   Karena disini mau insert, jadi type nya post
 	            	*/
 	                type:'POST',
-		            url:" {{ route('ikk.add') }} ",
+		            url:" {{ route('rangka.add') }} ",
 		            //Data dibawah asalnya dimulai dari baris 12 di atas
 	                data:{
 	                	/* Untuk routing post, harus pakai csrf token
@@ -40,14 +44,19 @@
 	                	*/
 		                "_token": "{{ csrf_token() }}"
 		                ,id
-		                ,kd_ss
-		                ,sasaran
-		                ,kd_ikk
-		                ,indikator_kinerja_kegiatan
-		                ,kd_program
-		                ,program
-		                ,kd_keg
-		                ,rincian_kegiatan
+				        ,kd_keg
+				        ,nama_keg
+				        ,kd_kro
+				        ,nama_kro
+				        ,kd_ro
+				        ,nama_ro
+				        ,kd_kp
+				        ,nama_kp
+				        ,kd_sk
+				        ,nama_sk
+				        ,kd_ak
+				        ,nama_ak
+				        ,kd_mak
 	                },
 	                //kalo respon dari server sukses :
                     success:function(data){
@@ -76,7 +85,6 @@
             	~ Untuk menghapus data cukup mengirimkan id saja ke server ~
 				*/
 				let id = setiapBaris[0]
-				let kd_ikk = setiapBaris[3]
 				//akhir dari pendefinisian variabel
 
 			Swal.fire({
@@ -94,11 +102,10 @@
 			            	Karena disini mau DELETE, jadi type nya post
 			            */
 						type:'POST',
-						url:" {{ route('ikk.del') }} ",
+						url:" {{ route('rangka.del') }} ",
 						data:{
 						 "_token": "{{ csrf_token() }}"
 						 ,id
-						 ,kd_ikk
 						},
 						//kalo respon dari server sukses :
 						success:function(data){
@@ -151,13 +158,13 @@
 		// Fungsi untuk membuat data data berbentuk tr td dari sebuah tabel html
 		$(document).on('click', "#btn_addRow", function(e){
 			const barisBaru = () => {
-    			let data ='<tr> <td></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td><td contenteditable="true"></td> <td contenteditable="true"></td> <td><div class="btn-group"><span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span><span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span><span class="new_btn"><i role="button" class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span><span class="add_btn"><i role="button" class="bg-warning px-2 mx-1 py-2 fa-solid fe fe-plus"></i></span> </div></td></tr>';
+    			let data ='<tr> <td></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td><div class="btn-group"><span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span><span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span><span class="new_btn"><i role="button" class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span><span class="add_btn"><i role="button" class="bg-warning px-2 mx-1 py-2 fa-solid fe fe-plus"></i></span> </div></td></tr>';
     			return data;
 			};
 			/* Append data baris ke kolom yg paling bawah
-			Yaitu tabel dengan id `tabel-ikk`
+			Yaitu tabel dengan id `tabel-rangka`
 			*/
-			$('.tabel-ikk').append(barisBaru())
+			$('.tabel-rangka').append(barisBaru())
 		})
 
  }); //akhir dari document ready 🤗

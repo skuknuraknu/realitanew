@@ -3,30 +3,28 @@
  {{-- mendefinisikan title dari halaman ini yang asalnya dari 
       file master layout.blade.php pada baris `13` (yield) 
       baca lebih lanjut `https://www.malasngoding.com/sistem-template-blade-laravel/fungsi-yield-pada-laravel` --}}
-@section('title', 'IKK')
+@section('title', 'KKM')
 @section('content')
-    {{-- Tabel indikator kinerja --}}
+    {{-- Tabel Kontrak kinerja Kegiatan --}}
     <div class="row mt-5">
          <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                     <h3 class="card-title">Indikator Kinerja Kegiatan</h3>
+                     <h3 class="card-title">Kontrak Kinerja Kegiatan</h3>
                 </div>
                 <div class="card-body">
                 <button id="btn_addRow" class="btn btn-primary mb-4"> Add New Row</button>
                 <div class="table-responsive">
-                <table class="tabel-ikk table table-bordered border mb-0" id="basic-datatable">
+                <table class="tabel-ikk table table-bordered border mb-0" id="new-edit">
                     <thead>
                         <tr>
                             <th>id</th>
-                            <th>Kode SS</th>
-                            <th>Sasaran</th>
-                            <th>Kode IKK</th>
-                            <th>Indikator Kinerja Kegiatan</th>
-                            <th>Kode Pro</th>
-                            <th>Program</th>
-                            <th>Kode Keg</th>
-                            <th>Rincian Kegiatan</th>
+                            <th>KODE IKK</th>
+                            <th>INDIKATOR KINERJA KEGIATAN</th>
+                            <th>KK MENDIKBUD</th>
+                            <th>KK MENKEU</th>
+                            <th>SATUAN</th>
+                            <th>BOBOT</th>
                             <th>AKSI</th>    
                         </tr>
                     </thead>
@@ -35,17 +33,24 @@
                              untuk menampilkan data ke tabel disini menggunakan foreach 
                              bisa juga pakai for(bla; bla; bla;), tapi lebih mudah pakai foreach 🤗
                         --}}
-                        @foreach($allIKK as $data)
+                        @foreach($allKKM as $data)
                             <tr>
-                                <td contenteditable="true">{{ $data->id }}</td>
-                                <td contenteditable="true">{{ $data->kd_ss }}</td>
-                                <td contenteditable="true">{{ $data->sasaran }}</td>
-                                <td contenteditable="true">{{ $data->kd_ikk }}</td>
-                                <td contenteditable="true">{{ $data->indikator_kinerja_kegiatan}}</td>
-                                <td contenteditable="true">{{ $data->kd_program }}</td>
-                                <td contenteditable="true">{{ $data->program }}</td>
-                                <td contenteditable="true">{{ $data->kd_keg }}</td>
-                                <td contenteditable="true">{{ $data->rincian_kegiatan }}</td>
+                                <td>{{ $data->id }}</td>
+                                <td>
+                                    <select name="kd_ikk" type="text" class="kd_ikk d-inline form-control w-auto required">
+                                    <option value="SILAHKAN PILIH" selected="true">Pilih</option>
+                                    @foreach ($ikk as $dataIKK)
+                                        <option value="{{ $dataIKK->kd_ikk }}">{{ $dataIKK->kd_ikk }}</option>
+                                    @endforeach
+                                </select>
+                                <p class="text-center">{{ $data->kd_ikk }}</p>
+                                </td>
+                                <td class="indikator_kinerja_kegiatan" contenteditable="false"> {{$data->indikator_kinerja_kegiatan}}</td>
+                                <td contenteditable="true"> {{ $data->kk_mendikbud }}</td>
+                                <td contenteditable="true"> {{ $data->kk_menkeu }}</td>
+                                <td contenteditable="true"> {{ $data->satuan }}</td>
+                                <td contenteditable="true"> {{ $data->bobot }}</td>
+                                
                                 <td>
                                     <div class="btn-group">
                                         <span class="del_btn"><i role="button"
@@ -67,17 +72,15 @@
         </div>
     </div>
 </div>
- {{-- Akhir Tabel indikator kinerja --}}
-
+ {{-- Akhir Kontrak Kontrak kinerja Kegiatan --}}
 @endsection
 
 {{-- `https://stackoverflow.com/questions/44674255/how-to-use-directive-push-in-blade-template-laravel` --}}
 @push('yss')
-    @include('IKK.css')
+    @include('KKM.css')
 @endpush
 
 @push('scripts')
-    
-    @include('IKK.scripts')
+    @include('KKM.scripts')
 @endpush
 
