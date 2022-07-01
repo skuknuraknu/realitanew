@@ -43,6 +43,15 @@
                             </li>
 
                             <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Data Verification</span><i class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li>
+                                    {{-- <li><a href="{{ route('ikk.index')}}" class="slide-item">Indikator Kinerja Kegiatan</a></li> --}}
+                                    <li><a href="{{ route('verPerkin.index')}}" class="slide-item ikk_btn">Perkin</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Data Print</span><i class="angle fe fe-chevron-right"></i></a>
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li>

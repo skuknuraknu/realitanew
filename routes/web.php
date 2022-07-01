@@ -7,6 +7,7 @@ use App\Http\Controllers\RANGKAController;
 use App\Http\Controllers\PerkinController;
 use App\Http\Controllers\PerkinReportController;
 use App\Http\Controllers\REKATController;
+use App\Http\Controllers\VerPERKINController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +52,14 @@ Route::get('/REKAT',[REKATController::class, 'index'])->name('rekat.index');
 Route::post('/REKAT/add',[REKATController::class, 'add'])->name('rekat.add');
 Route::post('/REKAT/del',[REKATController::class, 'del'])->name('rekat.del');
 Route::get('/REKAT/get',[REKATController::class, 'get'])->name('rekat.get');
+
+// ~~ Routing untuk Halaman Verifikasi Perkin
+Route::get('/VERPERKIN',[VerPERKINController::class, 'index'])->name('verPerkin.index');
+Route::post('/VERPERKIN/add',[VerPERKINController::class, 'add'])->name('verPerkin.add');
+Route::post('/VERPERKIN/del',[VerPERKINController::class, 'del'])->name('verPerkin.del');
+Route::get('/VERPERKIN/get',[VerPERKINController::class, 'get'])->name('verPerkin.get');
+Route::get('/VERPERKIN/getDataPerkin',[VerPERKINController::class, 'getDataPerkin'])->name('verPerkin.getDataPerkin');
+
 
 Route::get('/', function(){
 	return view('index');

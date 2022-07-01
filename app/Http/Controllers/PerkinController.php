@@ -37,6 +37,7 @@ class PerkinController extends Controller
             "tw_2"   => $req->tw_2,
             "tw_3"   => $req->tw_3,
             "tw_4"   => $req->tw_4,
+            "jumlah_bobot" => (int)$req->tw_1 + (int)$req->tw_2 + (int)$req->tw_3 + (int)$req->tw_4 
         ];
         $data = Perkin::updateOrCreate(["id" => $req->id], $triwulanData);
         return response()->json(["OK - INSERTED TW"]);
@@ -54,8 +55,8 @@ class PerkinController extends Controller
      public function get(Request $req)
     {
         $dataIku = DB::select( DB::raw("SELECT * FROM Tb_KKM WHERE kd_ikk = '$req->kd_ikk'"));
-        return array($dataIku);
-
+        $dataPerkin = DB::select( DB::raw("SELECT status FROM Tb_PERKIN WHERE kd_ikk = '$req->kd_ikk'"));
+        return array($dataIku, $dataPerkin);
     }
     public function add(Request $req)
     {

@@ -30,5 +30,6 @@ class Perkin extends Model
         ,"tw_3"
         ,"tw_4"
         ,"bobot"
+        ,"jumlah_bobot"
     ];
 }

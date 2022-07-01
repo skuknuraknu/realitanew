@@ -11,65 +11,56 @@
                                     <h3 class="card-title">Penandatanganan</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form >
-                                        {{-- 1 --}}
-                                        <div class="form-row">
-                                            <div class="col-xl-6 mb-3">
-                                                <label for="validationDefault01">Pihak Pertama Tempat Penandatanganan</label>
-                                                <input type="text" id="PP_TPT" class="form-control" id="validationDefault01" required>
-                                            </div> 
-                                            <div class="col-xl-6 mb-3">
-                                                <label for="validationDefault01">Nama Pimpinan (UNIT KERJA)</label>
-                                                <input type="text" id="PK_NAMA" class="form-control" id="validationDefault01" required>
-                                            </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                                  <p style="text-decoration:underline">Pihak Pertama</p> 
+                                      <table class="table table-bordered border mb-0" id="new-edit">
+                                            <tr>
+                                            <td class="head">Tempat Penandatangan </td>
+                                            <td class="PP_TPT" contenteditable="true"></td>
+                                        </tr>
+                                        <tr>
+                                               <td class="head indikator_kinerja_kegiatan">Tanggal Penandatangan </td>
+                                                <td class="PP_TGL" contenteditable="true"></td>
+                                        </tr>
+                                        <tr>
+                                               <td class=" head">Nama Pimpinan (Rektor) </td>
+                                                <td class="PP_NAMA" contenteditable="true"></td>
+                                        </tr>
+                                        <tr>
+                                               <td class="head">Jabatan Pimpinan (Rektor) </td>
+                                                <td class="PP_JBT" contenteditable="true"></td>
+                                        </tr>
+                                        <tr>
+                                               <td class="head">NIP (Rektor) </td>
+                                                <td class="PP_NIP" contenteditable="true"></td>
+                                        </tr>
+                                      </table>
+                                        </div>  
+
+                                        <div class="col-md-6">
+                                                  <p style="text-decoration:underline">Pihak Kedua</p> 
+                                                    <table class="table table-bordered border mb-0" id="new-edit">
+                                                   <tr>
+                                            <td class="head">Nama Pimpinan (Unit Kerja) </td>
+                                            <td class="PK_NAMA" contenteditable="true"></td>
+                                        </tr>
+                                        <tr>
+                                               <td class="head">Jabatan Pimpinan (Unit Kerja) </td>
+                                                <td class="PK_JBT" contenteditable="true"></td>
+                                        </tr>
+                                        <tr>
+                                               <td class=" head">NIP (Unit Kerja) </td>
+                                                <td class="PK_NIP" contenteditable="true"></td>
+                                        </tr>                                            
+                                       </table>
+                                        <button class="btn btn-primary btn-block mt-5 w-full">SIMPAN & LANJUTKAN</button>
                                         </div>
-                                        {{-- 2 --}}
-                                        <div class="form-row">
-                                            <div class="col-xl-6 mb-3">
-                                                <label for="validationDefault01">Pihak Pertama Tanggal Penandatanganan</label>
-                                                <input type="date" id="PP_TGL" class="form-control" id="validationDefault01" required>
-                                            </div>
-                                            <div class="col-xl-6 mb-3">
-                                                <label for="validationDefault01">Jabatan Pimpinan (Unit Kerja)</label>
-                                                <input type="text" id="PK_JBT" class="form-control" id="validationDefault01" required>
-                                            </div>
-                                        </div>
-                                        {{-- 3 --}}
-                                         <div class="form-row">
-                                            <div class="col-xl-6 mb-3">
-                                                <label for="validationDefault01">Nama Pimpinan (Rektor)</label>
-                                                <input type="text" id="PP_REKTOR"  class="form-control" id="validationDefault01" required>
-                                            </div> 
-                                           <div class="col-xl-6 mb-3">
-                                                <label for="validationDefault01">NIP Pimpinan (Unit Kerja)</label>
-                                                <input type="text" id="PK_NIP" class="form-control" id="validationDefault01" required>
-                                            </div>
-                                        </div>
-                                        {{-- 4 --}}
-                                         <div class="form-row">
-                                            <div class="col-xl-6 mb-3">
-                                                <label for="validationDefault01">Jabatan Pimpinan (Rektor)</label>
-                                                <input type="text" id="PP_JBT" class="form-control" id="validationDefault01" required>
-                                            </div> 
-                                            
-                                        </div>
-                                        {{-- 5 --}}
-                                          <div class="form-row">
-                                            <div class="col-xl-6 mb-3">
-                                                <label for="validationDefault01">NIP Pimpinan (Rektor)</label>
-                                                <input type="text" id="PP_NIP" class="form-control" id="validationDefault01" required>
-                                            </div> 
-                                        </div>
-                                        <button class="btn btn-primary btn-block" id="submitBtn" type="submit">SUBMIT</button>
-                                         <div class="col-sm-6 col-md-6 col-xl-3">
-                                            <a class="modal-effect btn btn-warning-light d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modaldemo8">Newspaper</a>
-                                        </div>
-                                    </form>
+                                      </div>
                                 </div>
                             </div>
-                        </div>
                             
-                       
+    </div>           
 @endsection
 
 

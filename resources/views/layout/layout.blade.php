@@ -156,10 +156,10 @@
                                     </div>
                                 </div>
                                 <div class="switch-toggle d-flex mt-2">
-                                    <a class="bg-img1 bg-img" href="javascript:void(0);"><img src="assets/images/media/bg-img1.html"  alt="Bg-Image" id="bgimage1"></a>
-                                    <a class="bg-img2 bg-img" href="javascript:void(0);"><img src="assets/images/media/bg-img2.html"  alt="Bg-Image"  id="bgimage2"></a>
-                                    <a class="bg-img3 bg-img" href="javascript:void(0);"><img src="assets/images/media/bg-img3.html"  alt="Bg-Image" id="bgimage3"></a>
-                                    <a class="bg-img4 bg-img" href="javascript:void(0);"><img src="assets/images/media/bg-img4.html"  alt="Bg-Image" id="bgimage4"></a>
+                                    <a class="bg-img1 bg-img" href="javascript:void(0);"><img src="{{ asset('assets/images/media/bg-img1.html') }}"  alt="Bg-Image" id="bgimage1"></a>
+                                    <a class="bg-img2 bg-img" href="javascript:void(0);"><img src="{{ asset('assets/images/media/bg-img2.html') }}"  alt="Bg-Image"  id="bgimage2"></a>
+                                    <a class="bg-img3 bg-img" href="javascript:void(0);"><img src="{{ asset('assets/images/media/bg-img3.html') }}"  alt="Bg-Image" id="bgimage3"></a>
+                                    <a class="bg-img4 bg-img" href="javascript:void(0);"><img src="{{ asset('assets/images/media/bg-img4.html') }}"  alt="Bg-Image" id="bgimage4"></a>
                                 </div>
                             </div>
                         </div>
@@ -340,7 +340,7 @@
             @include('layout.footer')
         </div>
     </div>
-   
+   <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     <script src="{{ asset('assets/plugins/jquery/jquery.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/popper.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.html') }}"></script>
@@ -371,7 +371,8 @@
     <script src="{{ asset('assets/plugins/flot/jquery.flot.fillbetween.html') }}"></script>
     <script src="{{ asset('assets/plugins/flot/chart.flot.sampledata.html') }}"></script>
     <script src="{{ asset('assets/plugins/flot/dashboard.sampledata.html') }}"></script>
-    <script src="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.html') }}"></script>
+    {{-- <script src="https://jvectormap.com/js/jquery-jvectormap-1.2.2.min.js" ></script> --}}
+    {{-- <script src="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.html') }}"></script> --}}
     <script src="{{ asset('assets/js/index.html') }}"></script>
     <script src="{{ asset('assets/js/index1.html') }}"></script>
     <script src="{{ asset('assets/js/index2.html') }}"></script>
@@ -395,7 +396,7 @@
     <script src="{{ asset('assets/plugins/datatable/js/buttons.colVis.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/dataTables.responsive.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
-    <script src="{{ asset('assets/js/table-data.js"></script>
+    <script src="{{ asset('assets/js/table-data.js')}}"></script>
 
     
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

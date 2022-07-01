@@ -1,9 +1,12 @@
 <style type="text/css">
 table {
-  border-collapse: collapse;
+  font-size: 14px;
+    border-collapse: collapse;
 }
-table, tr, td {
-  border: solid 1px black;
+table th{
+  background-color: grey;
+}
+img{
 }
 </style>
 <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">

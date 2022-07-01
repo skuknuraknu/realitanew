@@ -183,7 +183,7 @@
                                 <div class="pt-3 fw-semibold ps-5">Today</div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/2.jpg"></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/2.jpg')}}"></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -194,7 +194,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/11.jpg"><span class="avatar-status bg-success"></span></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/11.jpg')}}"><span class="avatar-status bg-success"></span></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/10.jpg"></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/10.jpg')}}"></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -216,7 +216,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/13.jpg"></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/13.jpg')}}"></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -227,7 +227,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/12.jpg"><span class="avatar-status bg-success"></span></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/12.jpg')}}"><span class="avatar-status bg-success"></span></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -238,7 +238,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/15.html"></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/15.html')}}"></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -249,7 +249,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/4.jpg"></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/4.jpg')}}"></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -261,7 +261,7 @@
                                 <div class="pt-3 fw-semibold ps-5">Yesterday</div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/7.jpg"><span class="avatar-status bg-success"></span></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/7.jpg')}}"><span class="avatar-status bg-success"></span></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -272,7 +272,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/9.jpg"></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/9.jpg')}}"></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -283,7 +283,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/2.jpg"><span class="avatar-status bg-success"></span></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/2.jpg')}}"><span class="avatar-status bg-success"></span></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -294,7 +294,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/9.jpg"></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/9.jpg')}}"></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -305,7 +305,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/14.jpg"></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/14.jpg')}}"></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -316,7 +316,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/11.jpg"></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/11.jpg')}}"></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">
@@ -327,7 +327,7 @@
                                 </div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
-                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="assets/images/users/4.jpg"><span class="avatar-status bg-success"></span></span>
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src="{{ asset('assets/images/users/4.jpg')}}"><span class="avatar-status bg-success"></span></span>
                                     </div>
                                     <div class="">
                                         <a href="chat.html">

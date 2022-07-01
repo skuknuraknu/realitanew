@@ -28,6 +28,7 @@
                             <th>TW III</th>
                             <th>TW IV</th>
                             <th>BOBOT</th>
+                            <th>STATUS</th>
                             <th>AKSI</th>    
                         </tr>
                     </thead>
@@ -41,12 +42,15 @@
                                 <td>{{ $data->id }}</td>
                                  <td>
                                     <select name="kd_ikk" type="text" class="kd_ikk d-inline form-control w-auto required">
-                                        <option value="SILAHKAN PILIH" selected="true">Pilih</option>
+                                        <option value="SILAHKAN PILIH" selected="selected">Pilih</option>
                                         @foreach ($kkm as $dataIKK)
-                                            <option value="{{ $dataIKK->kd_ikk }}">{{ $dataIKK->kd_ikk }}</option>
+                                            <option value="{{ $dataIKK->kd_ikk }}" 
+                                                @if ($dataIKK->kd_ikk == $data->kd_ikk)
+                                                selected="selected"
+                                                @endif
+                                                >{{ $dataIKK->kd_ikk }}</option>
                                         @endforeach
                                     </select>
-                                <p class="text-center ikk">{{ $data->kd_ikk }}</p>
                                 </td>
                                 <td class="indikator_kinerja_kegiatan"> {{ $data->indikator_kinerja_kegiatan }}</td>
                                 <td class="kk_mendikbud"> {{ $data->kk_mendikbud }}</td>
@@ -57,6 +61,15 @@
                                 <td contenteditable="true"> {{ $data->tw_3 }}</td>
                                 <td contenteditable="true"> {{ $data->tw_4 }}</td>
                                 <td class="bobot"> {{ $data->bobot }}</td>
+                                <td class="status" 
+                                    @if($data->status == 'Belum Disetujui')
+                                        style='color:red'
+                                    @else
+                                        style='color:green'
+                                    @endif
+                                    > 
+                                      <span> {{$data->status}} </span>
+                                </td>
                                 
                                 <td>
                                     <div class="btn-group">
