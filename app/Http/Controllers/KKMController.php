@@ -12,13 +12,14 @@ class KKMController extends Controller
 {
     public function index()
     {
-        $ikk = IKK::all('kd_ikk', 'indikator_kinerja_kegiatan');
+        $ikk =  $dataIku = DB::select( DB::raw("SELECT DISTINCT kd_ikk, indikator_kinerja_kegiatan FROM data_IKK"));
+        // $ikk = IKK::all('kd_ikk', 'indikator_kinerja_kegiatan');
         $allKKM = KKM::all();
         return view('KKM.index', compact('allKKM', 'ikk'));
     }
     public function get(Request $req)
     {
-        $dataIku = DB::select( DB::raw("SELECT indikator_kinerja_kegiatan FROM Tb_IKK WHERE kd_ikk = '$req->kd_ikk'"));
+        $dataIku = DB::select( DB::raw("SELECT indikator_kinerja_kegiatan FROM data_IKK WHERE kd_ikk = '$req->kd_ikk'"));
         return array($dataIku);
     }
     public function add(Request $req)

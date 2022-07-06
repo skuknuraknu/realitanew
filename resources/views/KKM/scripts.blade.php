@@ -45,17 +45,25 @@
 	                },
 	                //kalo respon dari server sukses :
                     success:function(data){
-                    	Swal.fire({
-						  icon: 'success',
-						  title: 'BERHASIL MENYIMPAN DATA TERSEBUT',
-						  showConfirmButton: false,
-						  timer: 1200
-						})
-                    	window.location.reload()         
+					 Swal.fire({
+					  position: 'top-end',
+					  icon: 'success',
+					  title: data,
+					  showConfirmButton: false,
+					  timer: 2000
+					})
+                    window.location.reload()        
+                    	
                     },
                     //kalo respon dari server error :
                     error: function (request, status, error) {
-                        alert('Error!' + error);
+                     Swal.fire({
+					  position: 'top-end',
+					  icon: 'error',
+					  title: error,
+					  showConfirmButton: false,
+					  timer: 2000
+					})
                     }
                 })// End ajax 
             })// End save_btn on-click

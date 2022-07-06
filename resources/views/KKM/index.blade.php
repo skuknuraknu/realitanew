@@ -51,10 +51,12 @@
                                 <td contenteditable="true"> {{ $data->satuan }}</td>
                                 <td contenteditable="true"> {{ $data->bobot }}</td>
                                 
-                                <td>
+                                <td> 
                                     <div class="btn-group">
                                         <span class="del_btn"><i role="button"
                                         class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span>
+                                        <span class="save_btn"><i role="button"
+                                        class="modal-effect bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modaldemo8"></i></span> 
                                         <span class="save_btn"><i role="button"
                                         class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span>
                                         <span class="copy_btn"><i role="button"
@@ -73,6 +75,21 @@
     </div>
 </div>
  {{-- Akhir Kontrak Kontrak kinerja Kegiatan --}}
+    <div class="modal fade" id="modaldemo8 getCodeModal">
+            <div class="modal-dialog modal-dialog-centered text-center" role="document">
+                <div class="modal-content modal-content-demo">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Terima kasih</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body" id="getCode">
+                        <h6>Data sudah tersimpan</h6>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Save changes</button> <button class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection
 
 {{-- `https://stackoverflow.com/questions/44674255/how-to-use-directive-push-in-blade-template-laravel` --}}
