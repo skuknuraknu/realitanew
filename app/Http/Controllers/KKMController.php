@@ -1,12 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+//Model import
 use App\Models\IKK;
 use App\Models\KKM;
 use App\Models\Perkin;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class KKMController extends Controller
 {
@@ -20,7 +20,6 @@ class KKMController extends Controller
     {
         $dataIku = DB::select( DB::raw("SELECT indikator_kinerja_kegiatan FROM Tb_IKK WHERE kd_ikk = '$req->kd_ikk'"));
         return array($dataIku);
-
     }
     public function add(Request $req)
     {

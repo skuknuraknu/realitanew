@@ -5,7 +5,7 @@
                     <div class="side-header">
                         <a class="header-brand1" href="index.html">
                             {{-- <img src="assets/img/unsyiah.png" width="150"> --}}
-                            <img src="{{ asset('assets/img/usk.png') }}" class="img-fluid desktop-logo" alt="logo" width="200">
+                            <img src="{{ asset('assets/img/usk_baru.png') }}" class="img-fluid desktop-logo" alt="logo" width="100">
                             {{-- <img src="assets/img/usk_teks.png" class="header-brand-img toggle-logo" alt="logo"> --}}
                             {{-- <img src="assets/img/usk_teks.png" class="header-brand-img light-logo" alt="logo"> --}}
                             {{-- <img src="assets/images/brand/logo-3.png" class="header-brand-img light-logo1" alt="logo"> --}}

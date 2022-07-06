@@ -8,6 +8,8 @@ use App\Http\Controllers\PerkinController;
 use App\Http\Controllers\PerkinReportController;
 use App\Http\Controllers\REKATController;
 use App\Http\Controllers\VerPERKINController;
+
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,12 +48,15 @@ Route::post('/PERKIN/addTW',[PerkinController::class, 'insertTriwulan'])->name('
 
 //Report
 Route::get('/PERKINrpt',[PerkinReportController::class, 'index'])->name('perkinReport.index');
+Route::get('/PERKINrpt/pdf',[PerkinReportController::class, 'pdf'])->name('perkinReport.pdf');
+Route::get('/PERKINrpt/excel',[PerkinReportController::class, 'excel'])->name('perkinReport.excel');
 
 // ~~ Routing untuk Halaman Rekat
 Route::get('/REKAT',[REKATController::class, 'index'])->name('rekat.index');
 Route::post('/REKAT/add',[REKATController::class, 'add'])->name('rekat.add');
 Route::post('/REKAT/del',[REKATController::class, 'del'])->name('rekat.del');
 Route::get('/REKAT/get',[REKATController::class, 'get'])->name('rekat.get');
+Route::get('/REKAT/getSingleProg',[REKATController::class, 'getSingleProgram'])->name('rekat.getProg');
 
 // ~~ Routing untuk Halaman Verifikasi Perkin
 Route::get('/VERPERKIN',[VerPERKINController::class, 'index'])->name('verPerkin.index');

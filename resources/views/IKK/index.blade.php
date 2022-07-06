@@ -42,7 +42,7 @@
                                 <td contenteditable="true">{{ $data->sasaran }}</td>
                                 <td contenteditable="true">{{ $data->kd_ikk }}</td>
                                 <td contenteditable="true">{{ $data->indikator_kinerja_kegiatan}}</td>
-                                <td contenteditable="true">{{ $data->kd_program }}</td>
+                                <td contenteditable="true">{{ $data->kd_pr }}</td>
                                 <td contenteditable="true">{{ $data->program }}</td>
                                 <td contenteditable="true">{{ $data->kd_keg }}</td>
                                 <td contenteditable="true">{{ $data->rincian_kegiatan }}</td>
@@ -79,5 +79,3 @@
 @push('scripts')
     
     @include('IKK.scripts')
-@endpush
-

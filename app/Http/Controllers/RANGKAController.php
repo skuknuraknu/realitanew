@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\RANGKA;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class RANGKAController extends Controller
 {
     public function index()
     {
-        $allRANGKA = RANGKA::all();
+        $allRANGKA = DB::select( DB::raw("SELECT * FROM rangka ORDER by kd_keg"));
         return view('RANGKA.index', compact('allRANGKA'));
     }
     public function add(Request $req)

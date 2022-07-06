@@ -1,8 +1,24 @@
 <script type="text/javascript">
 // Disarankan ngoding sambil mendengar lagu watashi psikopat ~ 🎵Unravel ♫
 	$(document).ready(function() {
-		
-		
+		let bs = $('.tabel-perkin').dataTable();
+
+		// Saat tombol ver drop ditekan
+		$(document).on('click',"#ver_perencanaan", function(e){
+			var me = this; 
+			var status = $(me).closest('li').text()
+			var div_id = $(this).closest('tr').find('#status_perencanaan')
+			div_id.text(status)
+		})// End copy-btn	
+
+		// Saat tombol ver dop ditekan
+		$(document).on('click',"#ver_spi", function(e){
+			var me = this; 
+			var status = $(me).closest('li').text()
+			var div_id = $(this).closest('tr').find('#status_spi')
+			div_id.text(status)
+		})// End copy-btn
+
 		//Saat tombol save di klik
     	$(document).on('click', ".save_btn", function(e){
     		//Mengambil konten / isi dari setiap cell tabel
@@ -22,8 +38,8 @@
         		let tw_4 						= setiapBaris[8] 
         		let jumlah_bobot				= setiapBaris[9]
         		let tanggapan				    = setiapBaris[13]
-        		let verifikasi_perencanaan		= $(this).closest('tr').find('select.verifikasi_perencanaan').val()
-        		let verifikasi_spi				= $(this).closest('tr').find('select.verifikasi_spi').val()
+        		let verifikasi_perencanaan		= $(this).closest('tr').find('#status_perencanaan').text()
+        		let verifikasi_spi				= $(this).closest('tr').find('#status_spi').text()
                 //akhir dari pendefinisian variabel
 
                 /*

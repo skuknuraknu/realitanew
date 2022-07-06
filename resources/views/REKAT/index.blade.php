@@ -9,7 +9,7 @@
          <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                     <h3 class="card-title">Perjanjian Kinerja</h3>
+                     <h3 class="card-title">REKAT</h3>
                 </div>
                 <div class="card-body">
                 <button id="btn_addRow" class="btn btn-primary mb-4"> Add New Row</button>
@@ -25,8 +25,8 @@
                              <th>Kode Kegiatan</th>
                              <th>Rincian Kegiatan</th>
                              <th>TOR</th>
-                             <th>Kode Rincian Komponen</th>
-                             <th>Rincian Komponen</th>
+                             <th>Kode Rincian Sub Komponen</th>
+                             <th>Rincian Sub Komponen</th>
                              <th>akun</th>
                              <th>Aksi</th>
                           </tr>
@@ -49,7 +49,7 @@
                                         <option value="SILAHKAN PILIH" selected="selected">Pilih</option>
                                     </select>
                              </td>
-                             <td></td>
+                             <td class="program"></td>
                              <td class="kd_keg"> {{ $data->kd_keg }} </td>
                              <td class="rincian_kegiatan"> {{ $data->rincian_kegiatan}} </td>
                              <td class="TOR"> {{ $data->TOR}} </td>

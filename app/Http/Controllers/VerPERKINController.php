@@ -13,8 +13,7 @@ class VerPERKINController extends Controller
     public function index(){
         $perkin    = Perkin::all('kd_ikk', 'status');
         $perkinVer = VerPerkin::all();
-        $opsi      = ["SETUJU", "TOLAK"];
-        return view("VERIFIKASI.PERKIN.index", compact('perkinVer','perkin','opsi'));
+        return view("VERIFIKASI.PERKIN.index", compact('perkinVer','perkin'));
     }
     public function getDataPerkin(Request $req){
          $dataPerkin = DB::select( DB::raw("SELECT *, Tb_PERKIN.indikator_kinerja_kegiatan, Tb_PERKIN.kk_mendikbud, Tb_PERKIN.kk_menkeu, Tb_PERKIN.tw_1,Tb_PERKIN.tw_2,Tb_PERKIN.tw_3,Tb_PERKIN.tw_4,Tb_PERKIN.bobot FROM `Tb_VERPERKIN` INNER JOIN Tb_PERKIN ON Tb_PERKIN.kd_ikk = '$req->kd_ikk'"));
@@ -44,12 +43,12 @@ class VerPERKINController extends Controller
        ];
        $P = null;
        $data = VerPerkin::updateOrCreate(["kd_ikk" => $req->kd_ikk], $dataVERPerkin);
-       if($req->verifikasi_perencanaan == "SETUJUI" && $req->verifikasi_spi == "SETUJUI"){
+       if($req->verifikasi_perencanaan == "Approved" && $req->verifikasi_spi == "Approved"){
             $P = Perkin::where('kd_ikk', $req->kd_ikk)
            ->update([
-               'status' => "Di Setujui"
+               'status' => "Approved"
             ]);
            }
-       return array("ok");
+       return array($dataVERPerkin);
     }
 }

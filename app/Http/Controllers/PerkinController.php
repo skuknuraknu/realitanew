@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class PerkinController extends Controller
 {
+    //VIEW INDEX PENANDA TANGANAN
+    public function index() {
+        $kkm = KKM::all('kd_ikk');
+        $allPERKIN = Perkin::all();
+        return view('PERKIN.index', compact('allPERKIN', 'kkm'));
+    }  
     public function pttdHandler(Request $req) {
         $pttdData = 
         [
@@ -42,29 +48,17 @@ class PerkinController extends Controller
         $data = Perkin::updateOrCreate(["id" => $req->id], $triwulanData);
         return response()->json(["OK - INSERTED TW"]);
     }
-    public function index() {
-        $kkm = KKM::all('kd_ikk');
-        $allPERKIN = Perkin::all();
-        return view('PERKIN.index', compact('allPERKIN', 'kkm'));
-    }  
+    //VIEW INDEX TABEL
     public function show() {
         $kkm = KKM::all('kd_ikk', 'indikator_kinerja_kegiatan');
         $allPERKIN = Perkin::all();
         return view('PERKIN.perkinTable', compact('allPERKIN', 'kkm'));
     }
-     public function get(Request $req)
+    public function get(Request $req)
     {
         $dataIku = DB::select( DB::raw("SELECT * FROM Tb_KKM WHERE kd_ikk = '$req->kd_ikk'"));
         $dataPerkin = DB::select( DB::raw("SELECT status FROM Tb_PERKIN WHERE kd_ikk = '$req->kd_ikk'"));
         return array($dataIku, $dataPerkin);
-    }
-    public function add(Request $req)
-    {
-        $ajaxREQ = [
-          
-        ];
-        $data = Perkin::updateOrCreate(["id" => $req->id],$ajaxREQ);
-        return $data;
     }
     public function del(Request $req)
     {

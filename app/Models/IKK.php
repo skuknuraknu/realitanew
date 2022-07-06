@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class IKK extends Model
 {
     use HasFactory;
-    protected $table = 'Tb_IKK';
+    // protected $table = 'Tb_IKK';
+    protected $table = 'data_IKK';
     protected $fillable = 
     [
         'id'                        

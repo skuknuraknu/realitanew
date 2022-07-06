@@ -29,7 +29,7 @@
                             <th>Jumlah Target</th>
                             <th>Bobot</th>
                             <th>Verifikasi Perencanaan</th>
-                            <th>Verifikasi SPI</th>
+                            <th>Verifikasi_SPI</th>
                             <th>tanggapan</th>
                             <th>Aksi</th>
                         </tr>
@@ -53,32 +53,46 @@
                                 <td class="jumlah_bobot"> {{ (int)$data->tw_1 + (int)$data->tw_2 + (int)$data->tw_3 + (int)$data->tw_4}}</td>
                                 <td class="bobot"> {{ $data->bobot }}</td>
                                 <td>
-                                      <select name="verifikasi_perencanaan" type="text" class="verifikasi_perencanaan d-inline form-control w-auto required bg-white text-dark">
-                                        <option value="null" disable selected="selected">Pilih</option>
-                                        <option value="SETUJUI"
-                                         @if($data->verifikasi_perencanaan == "SETUJUI")
-                                            selected="selected"
-                                        >SETUJUI</option>
-                                        <option value="TOLAK" >TOLAK</option>
-                                        @else
-                                        <option value="SETUJUI">SETUJUI</option>
-                                        <option value="TOLAK" selected="selected">TOLAK</option>
-                                        @endif
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-7 ">
+                                            <span id="status_perencanaan">{{ $data->verifikasi_perencanaan}}</span>
+                                        </div>
+                                        <div class="col-md-5">
+                                             <div class="btn-group mt-2 mb-2">
+                                                    <button type="button" class="px-1 py-1 btn btn-github btn-pill dropdown-toggle" data-bs-toggle="dropdown"> <span class="caret"></span>
+                                                        </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li class="dropdown-plus-title">
+                                                            Pilih
+                                                            <b class="fa fa-angle-up" aria-hidden="true"></b>
+                                                        </li>
+                                                        <li id="ver_perencanaan"><a href="javascript:void(0)">Approved</a></li>
+                                                        <li id="ver_perencanaan"><a href="javascript:void(0)">Not approved</a></li>
+                                                    </ul>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>
-                                   <select name="verifikasi_spi" type="text" class="verifikasi_spi d-inline form-control w-auto required  bg-white text-dark">
-                                        <option value="null" disable selected="selected">Pilih</option>
-                                       <option value="SETUJUI"
-                                         @if($data->verifikasi_spi == "SETUJUI")
-                                            selected="selected"
-                                        >SETUJUI</option>
-                                        <option value="TOLAK" >TOLAK</option>
-                                        @else
-                                        <option value="SETUJUI">SETUJUI</option>
-                                        <option value="TOLAK" selected="selected">TOLAK</option>
-                                        @endif
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-7 ">
+                                            <span id="status_spi">{{ $data->verifikasi_spi}}</span>
+                                        </div>
+                                        <div class="col-md-5">
+                                             <div class="btn-group mt-2 mb-2">
+                                                    <button type="button" class="px-1 py-1 btn btn-github btn-pill dropdown-toggle" data-bs-toggle="dropdown"> <span class="caret"></span>
+                                                        </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li class="dropdown-plus-title">
+                                                            Pilih
+                                                            <b class="fa fa-angle-up" aria-hidden="true"></b>
+                                                        </li>
+                                                        <li id="ver_spi"><a href="javascript:void(0)">Approved</a></li>
+                                                        <li id="ver_spi"><a href="javascript:void(0)">Not approved</a></li>
+                                                    </ul>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </td>
                                   <td class="tanggapan" contenteditable="true"> {{ $data->tanggapan }}</td>
                                 <td>

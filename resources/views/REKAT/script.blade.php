@@ -188,12 +188,34 @@
 	                            $('.kd_program').empty();
 								let option = new Option("Pilih", "-"); $('.kd_program').append($(option));
 	                                 for(let i = 0;i< data.length;i++){
-	                                        let option = new Option(data[1][i].kd_program, data[1][i].kd_program);
+	                                        let option = new Option(data[1][i].kd_pr, data[1][i].kd_pr);
 	                                        $('.kd_program').append(option)
 	                                }
+                            }     });
+                 })
 
-                            } //
-                        });
+
+		 			//ONCHANGE SELECT PR
+       				 $(document).on('change', ".kd_program",function(e){
+                   	let kd_program = $(this).closest('tr').find('select.kd_program').val()
+                    let program = $(this).closest('tr').find('td.program')
+                     $.ajax({
+                           type:'GET',
+                           url:"{{ route('rekat.getProg') }}",
+                           data:{
+                             "_token": "{{ csrf_token() }}",
+                            kd_program,
+                            },
+                           success:function(data){
+                            console.log(data)
+								if(kd_program == "Pilih"){
+									console.log(kd_program)
+								}
+								program.text('')
+								program.text(data[0][0].program)
+							
+                            }     
+                        }); // ajax
                  })
 
 

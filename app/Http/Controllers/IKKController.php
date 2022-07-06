@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+//Model import
 use App\Models\IKK;
 use App\Models\KKM;
-use Illuminate\Http\Request;
 
 class IKKController extends Controller
 {
@@ -20,7 +20,7 @@ class IKKController extends Controller
             ,"sasaran" => $req->sasaran
             ,"kd_ikk" => $req->kd_ikk
             ,"indikator_kinerja_kegiatan" => $req->indikator_kinerja_kegiatan
-            ,"kd_program" => $req->kd_program
+            ,"kd_pr" => $req->kd_program
             ,"program" => $req->program
             ,"kd_keg" => $req->kd_keg
             ,"rincian_kegiatan" => $req->rincian_kegiatan
@@ -30,12 +30,11 @@ class IKKController extends Controller
         //     "kd_ikk" => $req->kd_ikk,
         //     "indikator_kinerja_kegiatan" => $req->indikator_kinerja_kegiatan
         // ]);
-        return response()->json(["OK - INSERT IKK & KKM"]);
+        return response()->json(["OK - INSERT DATA IKK"]);
     }
     public function del(Request $req)
     {
         IKK::where('id', $req->id)->delete();
-        KKM::where('kd_ikk', $req->kd_ikk)->delete();
-        return response()->json(["OK - DELETE IKK & KKM"]);
+        return response()->json(["OK - DELETE DATA IKK"]);
     }
 }

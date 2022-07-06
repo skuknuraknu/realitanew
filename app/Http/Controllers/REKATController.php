@@ -12,16 +12,21 @@ class REKATController extends Controller
      public function index()
     {
         $rekat = Rekat::all();
-        $ikk = IKK::all();
+        // $ikk = IKK::all();
+        $ikk = DB::select( DB::raw("SELECT DISTINCT ikkk.kd_ikk FROM ikkk"));
         return view('REKAT.index', compact('rekat','ikk'));
     }
     public function get(Request $req)
     {
         $kd_ikk = substr($req->kd_ikk,0,8);
-        $dataProg = DB::select( DB::raw("SELECT kd_program from Tb_IKK where kd_program LIKE '%$kd_ikk%'"));
-        $dataIku = DB::select( DB::raw("SELECT * FROM Tb_IKK WHERE kd_ikk = '$req->kd_ikk'"));
-        return array($dataIku, $dataProg);
+        $dataProg = DB::select( DB::raw("SELECT kd_pr,program from ikkk where kd_pr LIKE '%$kd_ikk%'"));
+        $dataIku = DB::select( DB::raw("SELECT * FROM ikkk WHERE kd_ikk = '$req->kd_ikk'"));
+        return array($dataIku, $dataProg, $req->kd_ikk);
 
+    }
+    public function getSingleProgram(Request $req){
+        $dataProg = DB::select( DB::raw("SELECT program FROM ikkk WHERE kd_pr = '$req->kd_program'"));
+        return array($dataProg, $req->kd_program);
     }
     public function add(Request $req)
     {
