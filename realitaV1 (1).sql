@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 06, 2022 at 08:48 AM
+-- Generation Time: Jul 06, 2022 at 09:15 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -272,11 +272,11 @@ CREATE TABLE `Tb_IKK` (
 CREATE TABLE `Tb_KKM` (
   `id` int(11) NOT NULL,
   `kd_ikk` varchar(200) NOT NULL,
-  `indikator_kinerja_kegiatan` text DEFAULT NULL,
-  `kk_mendikbud` varchar(200) DEFAULT NULL,
-  `kk_menkeu` varchar(200) DEFAULT NULL,
-  `satuan` varchar(200) DEFAULT NULL,
-  `bobot` int(11) DEFAULT NULL,
+  `indikator_kinerja_kegiatan` text NOT NULL,
+  `kk_mendikbud` varchar(200) NOT NULL,
+  `kk_menkeu` varchar(200) NOT NULL,
+  `satuan` varchar(200) NOT NULL,
+  `bobot` int(11) NOT NULL,
   `updated_at` date NOT NULL,
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -286,7 +286,8 @@ CREATE TABLE `Tb_KKM` (
 --
 
 INSERT INTO `Tb_KKM` (`id`, `kd_ikk`, `indikator_kinerja_kegiatan`, `kk_mendikbud`, `kk_menkeu`, `satuan`, `bobot`, `updated_at`, `created_at`) VALUES
-(28, 'SILAHKAN PILIH', 'Persentase lulusan 51 dan D4/D3/02 yang berhasil mendapat pekerjaan; melanjutkan studi; atau menjadi wiraswasta.', '90', '80', '%', 100, '2022-07-06', '2022-07-06');
+(29, 'IKU 2.1', 'Persentase dosen yang berkegiatan trldarma dikampus lain, di 05100 berdasarkan bidang ilmu (0S100 by subject), bekerja sebagai praktisi di dunia industri, atau membina mahasiswa yang berhasil meraih prestasi paling rendah tingkat nasional dalam 5 (lima) Tahun Terakhir', '90', '90', '%', 80, '2022-07-06', '2022-07-06'),
+(30, 'IKU 2.1', 'Persentase dosen yang berkegiatan trldarma dikampus lain, di 05100 berdasarkan bidang ilmu (0S100 by subject), bekerja sebagai praktisi di dunia industri, atau membina mahasiswa yang berhasil meraih prestasi paling rendah tingkat nasional dalam 5 (lima) Tahun Terakhir', '8', '4', '%', 80, '2022-07-06', '2022-07-06');
 
 -- --------------------------------------------------------
 
@@ -319,6 +320,13 @@ CREATE TABLE `Tb_PERKIN` (
   `updated_at` date NOT NULL,
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Tb_PERKIN`
+--
+
+INSERT INTO `Tb_PERKIN` (`id`, `PP_TPT`, `PP_TGL`, `PP_REKTOR`, `PP_JBT`, `PP_NIP`, `PK_NAMA`, `PK_JBT`, `PK_NIP`, `kd_ikk`, `indikator_kinerja_kegiatan`, `kk_mendikbud`, `kk_menkeu`, `satuan`, `bobot`, `tw_1`, `tw_2`, `tw_3`, `tw_4`, `status`, `jumlah_bobot`, `updated_at`, `created_at`) VALUES
+(40, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IKU 2.1', 'Persentase dosen yang berkegiatan trldarma dikampus lain, di 05100 berdasarkan bidang ilmu (0S100 by subject), bekerja sebagai praktisi di dunia industri, atau membina mahasiswa yang berhasil meraih prestasi paling rendah tingkat nasional dalam 5 (lima) Tahun Terakhir', '90', '90', '%', 80, '20', '30', '50', '50', 'Approved', '150', '2022-07-06', '2022-07-06');
 
 -- --------------------------------------------------------
 
@@ -387,12 +395,19 @@ CREATE TABLE `Tb_VERPERKIN` (
   `tw_4` varchar(100) NOT NULL,
   `bobot` varchar(100) NOT NULL,
   `jumlah_bobot` varchar(100) NOT NULL,
-  `verifikasi_perencanaan` varchar(50) NOT NULL,
-  `verifikasi_spi` varchar(50) NOT NULL,
-  `tanggapan` text NOT NULL,
+  `verifikasi_perencanaan` varchar(50) DEFAULT NULL,
+  `verifikasi_spi` varchar(50) DEFAULT NULL,
+  `tanggapan` text DEFAULT NULL,
   `updated_at` date NOT NULL,
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Tb_VERPERKIN`
+--
+
+INSERT INTO `Tb_VERPERKIN` (`id`, `kd_ikk`, `indikator_kinerja_kegiatan`, `kk_mendikbud`, `kk_menkeu`, `tw_1`, `tw_2`, `tw_3`, `tw_4`, `bobot`, `jumlah_bobot`, `verifikasi_perencanaan`, `verifikasi_spi`, `tanggapan`, `updated_at`, `created_at`) VALUES
+(40, 'IKU 2.1', 'Persentase dosen yang berkegiatan trldarma dikampus lain, di 05100 berdasarkan bidang ilmu (0S100 by subject), bekerja sebagai praktisi di dunia industri, atau membina mahasiswa yang berhasil meraih prestasi paling rendah tingkat nasional dalam 5 (lima) Tahun Terakhir', '90', '90', '20', '30', '50', '50', '80', '150', 'Approved', 'Approved', 'sasdas', '2022-07-06', '2022-07-06');
 
 --
 -- Indexes for dumped tables
@@ -460,13 +475,13 @@ ALTER TABLE `Tb_IKK`
 -- AUTO_INCREMENT for table `Tb_KKM`
 --
 ALTER TABLE `Tb_KKM`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `Tb_PERKIN`
 --
 ALTER TABLE `Tb_PERKIN`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `Tb_RANGKA`
@@ -484,7 +499,7 @@ ALTER TABLE `Tb_REKAT`
 -- AUTO_INCREMENT for table `Tb_VERPERKIN`
 --
 ALTER TABLE `Tb_VERPERKIN`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
