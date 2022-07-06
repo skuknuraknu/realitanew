@@ -56,8 +56,6 @@
                                         <span class="del_btn"><i role="button"
                                         class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span>
                                         <span class="save_btn"><i role="button"
-                                        class="modal-effect bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modaldemo8"></i></span> 
-                                        <span class="save_btn"><i role="button"
                                         class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span>
                                         <span class="copy_btn"><i role="button"
                                         class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\KKM;
+use App\Models\VerPerkin;
 use App\Models\Perkin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -45,7 +46,21 @@ class PerkinController extends Controller
             "tw_4"   => $req->tw_4,
             "jumlah_bobot" => (int)$req->tw_1 + (int)$req->tw_2 + (int)$req->tw_3 + (int)$req->tw_4 
         ];
+        $VerPerkindata = 
+        [
+            "kd_ikk" => $req->kd_ikk,
+            "indikator_kinerja_kegiatan" => $req->indikator_kinerja_kegiatan,
+            "kk_mendikbud" => $req->kk_mendikbud,
+            "kk_menkeu" => $req->kk_menkeu,
+            "bobot" => $req->bobot,
+            "tw_1"   => $req->tw_1,
+            "tw_2"   => $req->tw_2,
+            "tw_3"   => $req->tw_3,
+            "tw_4"   => $req->tw_4,
+            "jumlah_bobot" => (int)$req->tw_1 + (int)$req->tw_2 + (int)$req->tw_3 + (int)$req->tw_4 
+        ];
         $data = Perkin::updateOrCreate(["id" => $req->id], $triwulanData);
+        $data = VerPerkin::updateOrCreate(["id" => $req->id], $VerPerkindata);
         return response()->json(["OK - INSERTED TW"]);
     }
     //VIEW INDEX TABEL
