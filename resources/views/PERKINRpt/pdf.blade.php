@@ -120,20 +120,28 @@ Tahun                       2023</pre>
         </tbody>
     </table>
 
-    <div class="row">
-      <div class="column left">
-          <br>
-                <span>{{ $pp['0']->PP_JBT }}</span><br><br><br><br><br><br>
-                <span>{{ $pp['0']->PP_REKTOR }}</span><br>
-                <span>{{ $pp['0']->PP_NIP }}</span>
-      </div>
-      <div class="column right">
-          <span>{{  $pp['0']->PP_TPT }}, {{ $pp['0']->PP_TGL }}</span><br>
-                <span>{{ $pp['0']->PK_JBT }}</span><br><br><br><br><br><br>
-                <span>{{ $pp['0']->PK_NAMA }}</span><br>
-                <span>{{ $pp['0']->PK_NIP }}</span>
-      </div>
-    </div>
+        <div class="row">
+          <div class="column left">
+            <br>
+            {{-- <span>{{ $pp['0']->PP_JBT }}</span><br><br><br><br><br><br>
+            <span>{{ $pp['0']->PP_REKTOR }}</span><br>
+            <span>{{ $pp['0']->PP_NIP }}</span> --}}
+            <span>Jabatan</span><br><br><br><br><br><br>
+            <span>Nama Rektor</span><br>
+            <span>321738271712</span>
+          </div>
+          <div class="column right">
+        {{--     <span>{{  $pp['0']->PP_TPT }}, {{ $pp['0']->PP_TGL }}</span><br>
+            <span>{{ $pp['0']->PK_JBT }}</span><br><br><br><br><br><br>
+            <span>{{ $pp['0']->PK_NAMA }}</span><br>                
+            <span>{{ $pp['0']->PK_NIP }}</span> --}}
+            <span> Di Tempat, 07 - 07 - 2022</span><br>
+            <span>Jabatan</span><br><br><br><br><br><br>
+            <span>Nama</span><br>                
+            <span>1184218402192</span>
+
+          </div>
+        </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
 <script src="{{ asset('assets/js/jquery.rowspanizer.min.js') }}"></script>

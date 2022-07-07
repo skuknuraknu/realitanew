@@ -14,7 +14,7 @@ class KKMController extends Controller
     {
         $ikk =  $dataIku = DB::select( DB::raw("SELECT DISTINCT kd_ikk, indikator_kinerja_kegiatan FROM data_IKK"));
         // $ikk = IKK::all('kd_ikk', 'indikator_kinerja_kegiatan');
-        $allKKM = KKM::all();
+        $allKKM = KKM::orderByRaw('kd_ikk')->get();
         return view('KKM.index', compact('allKKM', 'ikk'));
     }
     public function get(Request $req)
@@ -24,16 +24,27 @@ class KKMController extends Controller
     }
     public function add(Request $req)
     {
-        $ajaxREQ = [
+        // check apakah data ada yang kosong
+        if(
+            empty($req->bobot) || 
+            $req->kd_ikk == "SILAHKAN PILIH" || 
+            empty($req->kk_mendikbud) || 
+            empty($req->kk_menkeu) || 
+            empty($req->satuan)){
+            return "Mohon isi semua kolom";
+        }
+        // Menyimpan data ke variable array $REQ_KKm
+        $REQ_KKM = [
             "kd_ikk" => $req->kd_ikk
-        	,"indikator_kinerja_kegiatan" => $req->indikator_kinerja_kegiatan 
-        	,"kk_mendikbud" => $req->kk_mendikbud
-        	,"kk_menkeu" => $req->kk_menkeu
-        	,"satuan" => $req->satuan	 
-        	,"bobot" => $req->bobot
+            ,"indikator_kinerja_kegiatan" => $req->indikator_kinerja_kegiatan 
+            ,"kk_mendikbud" => $req->kk_mendikbud
+            ,"kk_menkeu" => $req->kk_menkeu
+            ,"satuan" => $req->satuan    
+            ,"bobot" => $req->bobot
         ];
-        $insertKKM = KKM::updateOrCreate(["id" => $req->id],$ajaxREQ);
-        return response()->json(["OK INSERT"]);
+        $KKMadd = KKM::updateOrCreate(["id" => $req->id],$REQ_KKM);
+        return "Berhasil menyimpan data";
+       
     }
     public function del(Request $req)
     {

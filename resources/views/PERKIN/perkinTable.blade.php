@@ -41,7 +41,7 @@
                             <tr>
                                 <td>{{ $data->id }}</td>
                                  <td>
-                                    <select name="kd_ikk" type="text" class="kd_ikk d-inline form-control w-auto required">
+                                    <select name="kd_ikk" type="text" class="kd_ikk bg-dark text-white d-inline form-control w-auto required">
                                         <option value="SILAHKAN PILIH" selected="selected">Pilih</option>
                                         @foreach ($kkm as $dataIKK)
                                             <option value="{{ $dataIKK->kd_ikk }}" 

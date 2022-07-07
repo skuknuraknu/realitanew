@@ -15,7 +15,7 @@
                 <div class="card-body">
                 <button id="btn_addRow" class="btn btn-primary mb-4"> Add New Row</button>
                 <div class="table-responsive">
-                <table class="tabel-ikk table table-bordered border mb-0" id="new-edit">
+                <table class="tabel-kkm table table-bordered border mb-0" id="new-edit">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -37,7 +37,7 @@
                             <tr>
                                 <td>{{ $data->id }}</td>
                                 <td>
-                                    <select name="kd_ikk" type="text" class="kd_ikk d-inline form-control w-auto required">
+                                    <select name="kd_ikk" type="text" class="kd_ikk bg-dark text-white d-inline form-control w-auto required">
                                     <option value="SILAHKAN PILIH" selected="true">Pilih</option>
                                     @foreach ($ikk as $dataIKK)
                                         <option value="{{ $dataIKK->kd_ikk }}">{{ $dataIKK->kd_ikk }}</option>

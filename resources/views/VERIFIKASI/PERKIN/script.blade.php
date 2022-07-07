@@ -87,8 +87,12 @@
                     },
                     //kalo respon dari server error :
                     error: function (request, status, error) {
-                        alert('Error!' + error);
-                        console.log(error)
+                        Swal.fire({
+						  icon: 'error',
+						  title: 'GALAT',
+						  showConfirmButton: false,
+						  timer: 1200
+						})
                     }
                 })// End ajax 
             })// End save_btn on-click

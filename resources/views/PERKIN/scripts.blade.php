@@ -1,48 +1,62 @@
 <script type="text/javascript">
 // Disarankan ngoding sambil mendengar lagu watashi psikopat ~ 🎵Unravel ♫
 	$(document).ready(function() {
-		 //
+		$('.tabel-perkin ').DataTable({
+			"ordering" : false
+		});
 		$(document).on('click', '#submitBtn', function(e){
 			e.preventDefault()
-			let PP_TPT 	  = $('#PP_TPT').val()
-            let PP_TGL 	  = $('#PP_TGL').val()
-            let PP_REKTOR = $('#PP_REKTOR').val()
-            let PP_JBT = $('#PP_JBT').val()
-            let PP_NIP = $('#PP_NIP').val()
-            let PK_NAMA = $('#PK_NAMA').val()
-            let PK_JBT = $('#PK_JBT').val()
-            let PK_NIP = $('#PK_NIP').val()
+			let PP_TPT 	  = $(".PP_TPT").text();
+            let PP_TGL 	  = $('#PP_TGL_INPUT').val()
+            let PP_REKTOR = $('.PP_NAMA').text()
+            let PP_JBT = $('.PP_JBT').text()
+            let PP_NIP = $('.PP_NIP').text()
+            let PK_NAMA = $('.PK_NAMA').text()
+            let PK_JBT = $('.PK_JBT').text()
+            let PK_NIP = $('.PK_NIP').text()
+
+            // Validasi Value
+            if(PP_TPT.length === 0 || PP_TGL.length === 0 ||PP_REKTOR.length === 0 || PP_JBT.length === 0 || PP_NIP.length === 0 || PK_NAMA.length === 0 || PK_JBT.length === 0 || PK_NIP.length === 0 ){
+					Swal.fire({
+					  icon: 'error',
+					  title: 'MOHON ISI SEMUA KOLOM'
+					})
+	   		} // end if
+            // End Validasi Value
             $.ajax({
-	            	/* INSERT | UPDATE | DELETE => POST
-	            	   READ       	   			=> GET
-	            	   Karena disini mau insert, jadi type nya post
-	            	*/
-	                type:'POST',
-		            url:" {{ route('perkin.penandatangananHandler') }} ",
-	                data:{
-	                	/* Untuk routing post, harus pakai csrf token
-	                	baca lebih lanjut `https://medium.com/dotlocal/belajar-laravel-chapter-13-tutorial-csrf-protection-8ce2f82c4ce`
-	                	*/
-		                "_token": "{{ csrf_token() }}"
-		                ,PP_TPT
-				        ,PP_TGL
-				        ,PP_REKTOR
-				        ,PP_JBT
-				        ,PP_NIP
-				        ,PK_NAMA
-				        ,PK_JBT
-				        ,PK_NIP
-	                },
-	                //kalo respon dari server sukses :
-                    success:function(data){
-                   			window.location.href = '/PERKIN/showTable'
-                    },
-                    //kalo respon dari server error :
-                    error: function (request, status, error) {
-                        alert('Error!' + error);
-                    }
-                })// End ajax 
-		})
+	            /* INSERT | UPDATE | DELETE => POST
+	           	   READ       	   			=> GET
+	           	   Karena disini mau insert, jadi type nya post
+	           	*/
+	            type:'POST',
+		        url:" {{ route('perkin.penandatangananHandler') }} ",
+				data:{
+	                /* Untuk routing post, harus pakai csrf token
+	               	baca lebih lanjut `https://medium.com/dotlocal/belajar-laravel-chapter-13-tutorial-csrf-protection-8ce2f82c4ce`
+	               	*/
+		            "_token": "{{ csrf_token() }}"
+		            ,PP_TPT
+				    ,PP_TGL
+				    ,PP_REKTOR
+				    ,PP_JBT
+				    ,PP_NIP
+				    ,PK_NAMA
+				    ,PK_JBT
+				    ,PK_NIP
+	             },
+	            //kalo respon dari server sukses :
+			    success:function(data){
+                   	window.location.href = '/PERKIN/showTable'
+                },
+                //kalo respon dari server error :
+				error: function (request, status, error) {
+                   	Swal.fire({
+					  icon: 'error',
+					  title: error
+					})
+                }
+            })// End ajax 
+		}) // End submit click
 
 		//Saat tombol save di klik
     	$(document).on('click', ".save_btn", function(e){
@@ -65,7 +79,15 @@
         		let status 						= setiapBaris[11] 
                 //akhir dari pendefinisian variabel
 
-                /*
+                 // Validasi Value
+            if(kd_ikk.length === 0 || indikator_kinerja_kegiatan.length === 0 || kk_mendikbud.length === 0 || kk_menkeu.length === 0 || satuan.length === 0 || bobot.length === 0 || tw_1.length === 0 || tw_2.length === 0 || tw_3.length === 0 || tw_4.length === 0){
+					Swal.fire({
+					  icon: 'error',
+					  title: 'MOHON ISI SEMUA KOLOM'
+					})
+					return false
+	   		} else{
+	   			    /*
 				Mengirim data yang nantinya akan diproses ke server melalui route `ikk.add` melalui ajax(Disinilah ajax diperlukan)
 				`ikk.add` sudah didefinisikan di folder routes/web.php 
 				baca lebih lanjut `https://www.maribelajarcoding.com/2019/12/crud-php-ajax-sederhana.html`
@@ -98,6 +120,7 @@
 	                },
 	                //kalo respon dari server sukses :
                     success:function(data){
+      					// console.log(data)
                     	Swal.fire({
 						  icon: 'success',
 						  title: 'BERHASIL MENYIMPAN DATA TERSEBUT',
@@ -108,9 +131,16 @@
                     },
                     //kalo respon dari server error :
                     error: function (request, status, error) {
-                        alert('Error!' + error);
+                        Swal.fire({
+						  icon: 'error',
+						  title: error,
+						})
                     }
                 })// End ajax 
+	   		}
+            // End Validasi Value
+
+            
             })// End save_btn on-click
            
 		// Saat tombol hapus ditekan
@@ -123,6 +153,7 @@
             	~ Untuk menghapus data cukup mengirimkan id saja ke server ~
 				*/
 				let id = setiapBaris[0]
+				let kd_ikk = $(this).closest('tr').find('select.kd_ikk').val()
 				//akhir dari pendefinisian variabel
 
 			Swal.fire({
@@ -144,6 +175,7 @@
 						data:{
 						 "_token": "{{ csrf_token() }}"
 						 ,id
+						 ,kd_ikk
 						},
 						//kalo respon dari server sukses :
 						success:function(data){
@@ -154,7 +186,7 @@
 		                error: function (request, status, error) {
 		                	Swal.fire({
 							  icon: 'error',
-							  title: 'Oops...',
+							  title: 'GALAT',
 							  text: status + ' | ' + error,
 							})
 						}
@@ -169,6 +201,9 @@
 		    $.each(baris.find('td'), function(i1,v1){
 		    	$(this).html('');
 		    	// Mengkosongkan baris awal (Karena baris awal diisi oleh ID)
+		    	if($(this).is(':nth-child(2)')){
+		    		$(this).html('<select name="kd_ikk" type="text" class="kd_ikk bg-dark text-white d-inline form-control w-auto required"><option value="SILAHKAN PILIH" selected="selected">Pilih</option>@foreach ($kkm as $dataIKK)<option value="{{ $dataIKK->kd_ikk }}" >{{ $dataIKK->kd_ikk }}</option>@endforeach </select>')
+		    	}
 		    	if ($(this).is(':last-child')) {
 		       		$(this).html('<div class="btn-group"><span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span><span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span><span class="new_btn"><i role="button" class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span></div><span class="add_btn"><i role="button" class="bg-warning px-2 mx-1 py-2 fa-solid fe fe-plus"></i></span></div>');
 		       	}
@@ -197,7 +232,7 @@
 		$(document).on('click', "#btn_addRow", function(e){
 	
 			const barisBaru = () => {
-    		let data ='<tr> <td></td> <td><select name="kd_ikk" type="text" class="kd_ikk d-inline form-control w-auto required"><option value="SILAHKAN PILIH" selected="true">Pilih</option>@foreach ($kkm as $dataIKK)<option value="{{ $dataIKK->kd_ikk }}">{{ $dataIKK->kd_ikk }}</option>@endforeach</select></td>  <td class="indikator_kinerja_kegiatan" contenteditable="false"></td> <td class="kk_mendikbud"></td><td class="kk_menkeu"></td><td class="satuan"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td class="bobot"></td><td class="status"></td><td><div class="btn-group"><span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span><span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span><span class="new_btn"><i role="button" class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span><span class="add_btn"><i role="button" class="bg-warning px-2 mx-1 py-2 fa-solid fe fe-plus"></i></span> </div></td></tr>';
+    		let data ='<tr> <td></td> <td><select name="kd_ikk" type="text" class="kd_ikk bg-dark text-white d-inline form-control w-auto required"><option value="SILAHKAN PILIH" selected="true">Pilih</option>@foreach ($kkm as $dataIKK)<option value="{{ $dataIKK->kd_ikk }}">{{ $dataIKK->kd_ikk }}</option>@endforeach</select></td>  <td class="indikator_kinerja_kegiatan" contenteditable="false"></td> <td class="kk_mendikbud"></td><td class="kk_menkeu"></td><td class="satuan"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td class="bobot"></td><td class="status"></td><td><div class="btn-group"><span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span><span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span><span class="new_btn"><i role="button" class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span><span class="add_btn"><i role="button" class="bg-warning px-2 mx-1 py-2 fa-solid fe fe-plus"></i></span> </div></td></tr>';
     			return data;
 			};
 			/* Append data baris ke kolom yg paling bawah

@@ -6,6 +6,7 @@ use App\Models\Perkin;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Models\VerPerkin;
+use App\Models\LaporanPerkin;
 use Illuminate\Http\Request;
 
 class VerPERKINController extends Controller
@@ -41,6 +42,17 @@ class VerPERKINController extends Controller
             ,"verifikasi_spi" => $req->verifikasi_spi
             ,"tanggapan" => $req->tanggapan
        ];
+       $dataLaporan = [
+            "kd_ikk" => $req->kd_ikk
+            ,"indikator_kinerja_kegiatan" => $req->indikator_kinerja_kegiatan
+            ,"kk_mendikbud" => $req->kk_mendikbud
+            ,"kk_menkeu" => $req->kk_menkeu
+            ,"bobot" => $req->bobot
+            ,"tw_1" => $req->tw_1 
+            ,"tw_2" => $req->tw_2
+            ,"tw_3" => $req->tw_3 
+            ,"tw_4" => $req->tw_4
+       ];
        $P = null;
        $data = VerPerkin::updateOrCreate(["kd_ikk" => $req->kd_ikk], $dataVERPerkin);
        if($req->verifikasi_perencanaan == "Approved" && $req->verifikasi_spi == "Approved"){
@@ -49,6 +61,23 @@ class VerPERKINController extends Controller
                'status' => "Approved"
             ]);
            }
-       return array($dataVERPerkin);
+       $kd_ikk = $req->kd_ikk;
+       LaporanPerkin::updateOrCreate(["kd_ikk" => $req->kd_ikk], $dataLaporan);
+       if($kd_ikk[4] == '1'){
+            DB::table('XTb_LAP_PERKIN')
+              ->where('kd_ikk', $kd_ikk)
+              ->update(
+                ['kd_ss' => 'SS_1.', 'sasaran' => 'Meningkatnya kualitas lulusan pendidikan tinggi']
+            );
+       }
+       if($kd_ikk[4] == '2'){
+            DB::table('XTb_LAP_PERKIN')
+              ->where('kd_ikk', $kd_ikk)
+              ->update(
+                ['kd_ss' => 'SS_2.', 'sasaran' => 'Meningkatnya kualitas dosen pendidikan tinggi']
+            );
+       }
+       return 'ok';
+       // return array($dataVERPerkin);
     }
 }

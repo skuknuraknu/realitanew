@@ -77,5 +77,5 @@
 @endpush
 
 @push('scripts')
-    
     @include('IKK.scripts')
+@endpush

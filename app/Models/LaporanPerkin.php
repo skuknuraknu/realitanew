@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Perkin extends Model
+class LaporanPerkin extends Model
 {
     use HasFactory;
-    protected $table = "Tb_PERKIN";
+    protected $table = "XTb_LAP_PERKIN";
     protected $fillable = 
     [
-        'id'
+        "kd_ss"
+        ,"sasaran"
         ,"kd_ikk"  
         ,"indikator_kinerja_kegiatan"  
         ,"kk_mendikbud"    
@@ -22,6 +23,5 @@ class Perkin extends Model
         ,"tw_3"
         ,"tw_4"
         ,"bobot"
-        ,"jumlah_bobot"
     ];
 }

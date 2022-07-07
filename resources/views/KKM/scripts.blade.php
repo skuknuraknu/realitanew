@@ -1,6 +1,8 @@
 <script type="text/javascript">
-// Disarankan ngoding sambil mendengar lagu watashi psikopat ~ 🎵Unravel ♫
 	$( document ).ready(function() {
+		let tabel = $('.tabel-kkm').DataTable({
+			 "ordering": false
+		});
 		//Saat tombol save di klik
     	$(document).on('click', ".save_btn", function(e){
     		//Mengambil konten / isi dari setiap cell tabel
@@ -45,19 +47,17 @@
 	                },
 	                //kalo respon dari server sukses :
                     success:function(data){
-					 Swal.fire({
+					Swal.fire({
 					  position: 'top-end',
-					  icon: 'success',
 					  title: data,
 					  showConfirmButton: false,
 					  timer: 2000
 					})
                     window.location.reload()        
-                    	
                     },
                     //kalo respon dari server error :
                     error: function (request, status, error) {
-                     Swal.fire({
+                    Swal.fire({
 					  position: 'top-end',
 					  icon: 'error',
 					  title: error,
@@ -151,13 +151,13 @@
 		// Fungsi untuk membuat data data berbentuk tr td dari sebuah tabel html
 		$(document).on('click', "#btn_addRow", function(e){
 			const barisBaru = () => {
-    			let data ='<tr> <td></td> <td><select name="kd_ikk" type="text" class="kd_ikk d-inline form-control w-auto required"><option value="SILAHKAN PILIH" selected="true">Pilih</option>@foreach ($ikk as $dataIKK)<option value="{{ $dataIKK->kd_ikk }}">{{ $dataIKK->kd_ikk }}</option>@endforeach</select></td>  <td class="indikator_kinerja_kegiatan" contenteditable="false"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td><td><div class="btn-group"><span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span><span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span><span class="new_btn"><i role="button" class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span><span class="add_btn"><i role="button" class="bg-warning px-2 mx-1 py-2 fa-solid fe fe-plus"></i></span> </div></td></tr>';
+    			let data ='<tr> <td></td> <td><select name="kd_ikk" type="text" class="kd_ikk bg-dark text-white d-inline form-control w-auto required"><option value="SILAHKAN PILIH" selected="true">Pilih</option>@foreach ($ikk as $dataIKK)<option value="{{ $dataIKK->kd_ikk }}">{{ $dataIKK->kd_ikk }}</option>@endforeach</select></td>  <td class="indikator_kinerja_kegiatan" contenteditable="false"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td><td><div class="btn-group"><span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span><span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span><span class="new_btn"><i role="button" class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span><span class="add_btn"><i role="button" class="bg-warning px-2 mx-1 py-2 fa-solid fe fe-plus"></i></span> </div></td></tr>';
     			return data;
 			};
 			/* Append data baris ke kolom yg paling bawah
 			Yaitu tabel dengan id `tabel-ikk`
 			*/
-			$('.tabel-ikk').append(barisBaru())
+			$('.tabel-kkm').append(barisBaru())
 		})
 
 		 //ONCHANGE SELECT IK

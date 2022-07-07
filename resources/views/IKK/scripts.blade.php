@@ -1,8 +1,7 @@
 
 <script type="text/javascript">
-// Disarankan ngoding sambil mendengar lagu watashi psikopat ~ 🎵Unravel ♫
 	$( document ).ready(function() {
-		let tabel = $('.tabel-ikk').DataTable();
+		$('.tabel-ikk').DataTable();
 		//Saat tombol save di klik
     	$(document).on('click', ".save_btn", function(e){
     		//Mengambil konten / isi dari setiap cell tabel
