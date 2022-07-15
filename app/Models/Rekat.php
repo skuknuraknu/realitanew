@@ -18,7 +18,13 @@ class Rekat extends Model
         ,"kd_keg"
         ,"rincian_kegiatan"
         ,"TOR"
+        ,"A1"
+        ,"A2"
+        ,"A3"
+        ,"A4"
+        ,"A5"
         ,"kd_rk"
         ,"rincian_komponen"    
+        ,"akun"    
     ];
 }

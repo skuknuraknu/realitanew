@@ -8,7 +8,7 @@
     <meta name="description" content="Sash –  Laravel Bootstrap 5 Admin & Dashboard Template">
     <meta name="author" content="SPRUKO™">
     <meta name="keywords" content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
-
+     <meta name="csrf-token" content="{{ csrf_token()}}">
     <!-- title -->
     <title>@yield('title')</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/unsyiah.ico') }}"/>
@@ -340,7 +340,7 @@
             @include('layout.footer')
         </div>
     </div>
-   <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+    <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     <script src="{{ asset('assets/plugins/jquery/jquery.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/popper.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.html') }}"></script>
@@ -362,7 +362,7 @@
     <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.html') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/dataTables.responsive.min.html') }}"></script>
-    <script src="{{ asset('assets/js/apexcharts.html') }}"></script>
+    {{-- <script src="{{ asset('assets/js/apexcharts.html') }}"></script> --}}
     <script src="{{ asset('assets/plugins/apexchart/irregular-data-series.html') }}"></script>
     <script src="{{ asset('assets/plugins/charts-c3/d3.v5.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/charts-c3/c3-chart.html') }}"></script>
@@ -397,8 +397,6 @@
     <script src="{{ asset('assets/plugins/datatable/dataTables.responsive.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('assets/js/table-data.js')}}"></script>
-
-    
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('scripts')
     </body>

@@ -167,7 +167,7 @@
 			Yaitu tabel dengan id `tabel-rangka`
 			*/
 			$('.tabel-rangka').append(barisBaru())
-		})
+		}) // END ADD ROW
 
  }); //akhir dari document ready 🤗
 </script>

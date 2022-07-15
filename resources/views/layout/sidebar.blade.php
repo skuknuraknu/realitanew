@@ -29,6 +29,7 @@
                                     <li><a href="{{ route('ikk.index')}}" class="slide-item ikk_btn">Indikator Kinerja Kegiatan</a></li>
                                     <li><a href="{{ route('kkm.index')}}" class="slide-item">Kontrak Kinerja Kementerian</a></li>
                                     <li><a href="{{ route('rangka.index')}}"  class="slide-item">Rancangan Anggaran</a></li>
+                                    <li><a href="{{ route('kodefikasi.index')}}"  class="slide-item">Kodefikasi Jenis Belanja</a></li>
                                 </ul>
                             </li>  
 
@@ -39,6 +40,9 @@
                                     {{-- <li><a href="{{ route('ikk.index')}}" class="slide-item">Indikator Kinerja Kegiatan</a></li> --}}
                                     <li><a href="{{ route('perkin.index')}}" class="slide-item ikk_btn">Perkin</a></li>
                                     <li><a href="{{ route('rekat.index')}}" class="slide-item ikk_btn">RKT</a></li>
+                                    <li><a href="{{ route('rabkeg.index')}}" class="ps-5 slide-item ikk_btn">RAB KEGIATAN</a></li>
+                                    <li><a href="{{ route('rabper.index')}}" class="ps-5 slide-item ikk_btn">RAB PERALATAN</a></li>
+                                    <li><a href="{{ route('rabgdg.index')}}" class="ps-5 slide-item ikk_btn">RAB GEDUNG</a></li>
                                 </ul>
                             </li>
 

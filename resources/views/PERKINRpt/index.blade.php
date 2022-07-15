@@ -13,7 +13,10 @@
                      <h3 class="card-title">Perjanjian Kinerja</h3>
                 </div>
                 <div class="card-body">
-               <span class="mb-4">EXPORT :</span> <a href='{{ route("perkinReport.pdf")}}' role="button" id="exportPDF" class="bg-primary rounded-sm px-2 py-2 text-light mb-4"><i class="fe fe-file-text">PDF</i></a>
+               
+                <a role="button" id="exportPDF" href='{{ route("perkinReport.pdf")}}' class="btn btn-secondary bg-info-gradient btn-pill">PRINT TO PDF</a>
+                 <a role="button" id="exportEXCEL"  href='{{ route("perkinReport.excel")}}' class="btn btn-secondary bg-success-gradient btn-pill">SAVE TO EXCEL</a>
+               
                 {{-- <button id="btn_addRow" class="btn btn-primary mb-4"> Add New Row</button> --}}
                 <div class="table-responsive py-4">
                 <table class="tabel-perkin table table-bordered border mb-0" id="new-edit">

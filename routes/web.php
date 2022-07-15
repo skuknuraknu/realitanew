@@ -8,6 +8,11 @@ use App\Http\Controllers\PerkinController;
 use App\Http\Controllers\PerkinReportController;
 use App\Http\Controllers\REKATController;
 use App\Http\Controllers\VerPERKINController;
+use App\Http\Controllers\KodefikasiJenisBelanjaController;
+use App\Http\Controllers\RABKEGIATANController;
+use App\Http\Controllers\RABPERALATANController;
+use App\Http\Controllers\RABGEDUNGController;
+
 
 use Illuminate\Support\Facades\DB;
 /*
@@ -57,6 +62,11 @@ Route::post('/REKAT/add',[REKATController::class, 'add'])->name('rekat.add');
 Route::post('/REKAT/del',[REKATController::class, 'del'])->name('rekat.del');
 Route::get('/REKAT/get',[REKATController::class, 'get'])->name('rekat.get');
 Route::get('/REKAT/getSingleProg',[REKATController::class, 'getSingleProgram'])->name('rekat.getProg');
+Route::get('/REKAT/getSingleKeg',[REKATController::class, 'getSingleKeg'])->name('rekat.getKeg');
+Route::get('/REKAT/getAkun',[REKATController::class, 'getAkun'])->name('rekat.getAkun');
+Route::get('/REKAT/getKodeKegiatan',[REKATController::class, 'getKodeKegiatan'])->name('rekat.getKodeKegiatan');
+Route::post('/REKAT/insertPDF',[REKATController::class, 'insertPDF'])->name('rekat.insertPDF');
+Route::post('/REKAT/lanjutRab',[REKATController::class, 'lanjutRab'])->name('rekat.lanjutRab');
 
 // ~~ Routing untuk Halaman Verifikasi Perkin
 Route::get('/VERPERKIN',[VerPERKINController::class, 'index'])->name('verPerkin.index');
@@ -65,6 +75,19 @@ Route::post('/VERPERKIN/del',[VerPERKINController::class, 'del'])->name('verPerk
 Route::get('/VERPERKIN/get',[VerPERKINController::class, 'get'])->name('verPerkin.get');
 Route::get('/VERPERKIN/getDataPerkin',[VerPERKINController::class, 'getDataPerkin'])->name('verPerkin.getDataPerkin');
 
+// ~~ Routing untuk Halaman Rancangan Anggaran
+Route::get('/KODEFIKASI',[KodefikasiJenisBelanjaController::class, 'index'])->name('kodefikasi.index');
+Route::post('/KODEFIKASI/add',[KodefikasiJenisBelanjaController::class, 'add'])->name('kodefikasi.add');
+Route::post('/KODEFIKASI/del',[KodefikasiJenisBelanjaController::class, 'del'])->name('kodefikasi.del');
+
+//RAB KEGIATAN
+Route::get('/RabKegiatan',[RABKEGIATANController::class, 'index'])->name('rabkeg.index');
+
+//RAB PERALATAN
+Route::get('/RabPeralatan',[RABPERALATANController::class, 'index'])->name('rabper.index');
+
+//RAB GEDUNG
+Route::get('/RabGedung',[RABGEDUNGController::class, 'index'])->name('rabgdg.index');
 
 Route::get('/', function(){
 	return view('index');

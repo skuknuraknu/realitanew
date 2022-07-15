@@ -124,6 +124,9 @@
 		    $.each(baris.find('td'), function(i1,v1){
 		    	$(this).html('');
 		    	// Mengkosongkan baris awal (Karena baris awal diisi oleh ID)
+		    	if($(this).is(':nth-child(2)')){
+		    		$(this).html('<select name="kd_ikk" type="text" class="kd_ikk bg-dark text-white d-inline form-control w-auto required"><option value="SILAHKAN PILIH" selected="true">Pilih</option> @foreach ($ikk as $dataIKK) <option value="{{ $dataIKK->kd_ikk }}">{{ $dataIKK->kd_ikk }}</option>@endforeach</select>')
+		    	}
 		    	if ($(this).is(':last-child')) {
 		       		$(this).html('<div class="btn-group"><span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span><span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span><span class="new_btn"><i role="button" class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span></div><span class="add_btn"><i role="button" class="bg-warning px-2 mx-1 py-2 fa-solid fe fe-plus"></i></span></div>');
 		       	}

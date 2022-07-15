@@ -13,7 +13,8 @@ class PerkinController extends Controller
 {
     //VIEW INDEX PENANDA TANGANAN
     public function index() {
-        $kkm = KKM::all('kd_ikk');
+        
+        $kkm = KKM::orderBy('kd_ikk','asc')->get();
         $data = KKM::all();
         $allPERKIN = Perkin::all();
         return view('PERKIN.index', compact('allPERKIN', 'kkm', 'data'));

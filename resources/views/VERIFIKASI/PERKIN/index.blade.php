@@ -16,23 +16,23 @@
                 <div class="table-responsive">
                 <table class="tabel-perkin table table-bordered border mb-0" id="new-edit">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Kode IK</th>
-                            <th>Indikator kinerja kegiatan</th>
-                            <th>KK MENDIKBUD</th>
-                            <th>KK MENKEU</th>
-                            <th>TW 1</th>
-                            <th>TW 2</th>
-                            <th>TW 3</th>
-                            <th>TW 4</th>
-                            <th>Jumlah Target</th>
-                            <th>Bobot</th>
-                            <th>Verifikasi Perencanaan</th>
-                            <th>Verifikasi_SPI</th>
-                            <th>tanggapan</th>
-                            <th>Aksi</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kode IK</th>
+                        <th>Indikator<span style="visibility: hidden;">_</span>kinerja<span style="visibility:hidden;">_</span>kegiatan</th>
+                        <th>KK MENDIKBUD</th>
+                        <th>KK MENKEU</th>
+                        <th>TW 1</th>
+                        <th>TW 2</th>
+                        <th>TW 3</th>
+                        <th>TW 4</th>
+                        <th>Jumlah Target</th>
+                        <th>Bobot</th>
+                        <th>Verifikasi Perencanaan</th>
+                        <th>Verifikasi<span style="visibility: hidden;" id="under">_</span>SPI</th>
+                        <th>tanggapan</th>
+                        <th>Aksi</th>
+                    </tr>
                     </thead>
                     <tbody>
                         {{-- Melakukan proses looping data yang dikirimin dari IKK Controller,
@@ -53,14 +53,12 @@
                                 <td class="jumlah_bobot"> {{ (int)$data->tw_1 + (int)$data->tw_2 + (int)$data->tw_3 + (int)$data->tw_4}}</td>
                                 <td class="bobot"> {{ $data->bobot }}</td>
                                 <td>
-                                    <div class="row">
-                                        <div class="col-md-7 ">
-                                            <span id="status_perencanaan">{{ $data->verifikasi_perencanaan}}</span>
-                                        </div>
-                                        <div class="col-md-5">
+                                          <div class="row">
+                                        <div class="col-md-6"></div>
+                                        <div class="col-md-6">
                                              <div class="btn-group mt-2 mb-2">
                                                     <button type="button" class="px-1 py-1 btn btn-github btn-pill dropdown-toggle" data-bs-toggle="dropdown"> <span class="caret"></span>
-                                                        </button>
+                                                    </button>
                                                     <ul class="dropdown-menu" role="menu">
                                                         <li class="dropdown-plus-title">
                                                             Pilih
@@ -69,30 +67,31 @@
                                                         <li id="ver_perencanaan"><a href="javascript:void(0)">Approved</a></li>
                                                         <li id="ver_perencanaan"><a href="javascript:void(0)">Not approved</a></li>
                                                     </ul>
-                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </div>  
+                                    <span id="status_perencanaan">{{ $data->verifikasi_perencanaan}}</span>
                                 </td>
                                 <td>
                                     <div class="row">
-                                        <div class="col-md-7 ">
-                                            <span id="status_spi">{{ $data->verifikasi_spi}}</span>
-                                        </div>
-                                        <div class="col-md-5">
-                                             <div class="btn-group mt-2 mb-2">
-                                                    <button type="button" class="px-1 py-1 btn btn-github btn-pill dropdown-toggle" data-bs-toggle="dropdown"> <span class="caret"></span>
-                                                        </button>
-                                                    <ul class="dropdown-menu" role="menu">
-                                                        <li class="dropdown-plus-title">
-                                                            Pilih
-                                                            <b class="fa fa-angle-up" aria-hidden="true"></b>
-                                                        </li>
-                                                        <li id="ver_spi"><a href="javascript:void(0)">Approved</a></li>
-                                                        <li id="ver_spi"><a href="javascript:void(0)">Not approved</a></li>
-                                                    </ul>
-                                                </div>
-                                        </div>
+                                       <div class="col-md-6"></div>
+                                       <div class="col-md-6">
+                                        <div class="btn-group mt-2 mb-2">
+                                        <button type="button" class="px-1 py-1 btn btn-github btn-pill dropdown-toggle" data-bs-toggle="dropdown"> <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li class="dropdown-plus-title">
+                                                Pilih
+                                                <b class="fa fa-angle-up" aria-hidden="true"></b>
+                                            </li>
+                                            <li id="ver_spi"><a href="javascript:void(0)">Approved</a></li>
+                                            <li id="ver_spi"><a href="javascript:void(0)">Not approved</a></li>
+                                        </ul>
                                     </div>
+                                       </div>
+                                   </div>
+                                    <span id="status_spi">{{ $data->verifikasi_spi}}</span>
+                                   
                                 </td>
                                   <td class="tanggapan" contenteditable="true"> {{ $data->tanggapan }}</td>
                                 <td>
