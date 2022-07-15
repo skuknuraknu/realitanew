@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 07, 2022 at 10:19 AM
+-- Generation Time: Jul 15, 2022 at 09:42 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -142,6 +142,22 @@ INSERT INTO `data_IKK` (`id`, `kd_ss`, `sasaran`, `kd_ikk`, `indikator_kinerja_k
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ikkk`
 --
 
@@ -156,6 +172,61 @@ CREATE TABLE `ikkk` (
   `kd_keg` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
   `rincian_kegiatan` text CHARACTER SET utf8 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2022_07_13_115407_create_table_rab_kegiatan', 2),
+(6, '2022_07_14_154051_create_table_rab_peralatan', 3),
+(7, '2022_07_14_160758_create_table_rab_gedung', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -188,8 +259,8 @@ CREATE TABLE `rangka` (
   `kd_ak` int(11) DEFAULT NULL,
   `nama_ak` varchar(61) CHARACTER SET utf8 DEFAULT NULL,
   `kd_mak` varchar(24) CHARACTER SET utf8 DEFAULT NULL,
-  `updated_at` int(11) DEFAULT NULL,
-  `created_at` int(11) DEFAULT NULL
+  `updated_at` date DEFAULT NULL,
+  `created_at` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -220,7 +291,7 @@ INSERT INTO `rangka` (`id`, `kd_keg`, `nama_keg`, `kd_kro`, `nama_kro`, `kd_ro`,
 (3888, 4471, 'Peningkatan Kualitas dan Kapasitas Perguruan Tinggi', 'DBA', 'Pendidikan Tinggi[Base Line]', 1, 'Layanan Pendidikan (PNBP/BLU)', 60, 'Penyelenggaraan Layanan Pendidikan Perguruan Tinggi', 'D', 'Administrasi Pendidikan', '', '', '', '', '', '', '', '', '', '', 525119, 'Belanja Penyediaan Barang dan Jasa BLU Lainnya', '4471.DBA.01.60.D.525119.', NULL, NULL),
 (5876, 4471, 'Peningkatan Kualitas dan Kapasitas Perguruan Tinggi', 'DBA', 'Pendidikan Tinggi[Base Line]', 1, 'Layanan Pendidikan (PNBP/BLU)', 60, 'Penyelenggaraan Layanan Pendidikan Perguruan Tinggi', 'D', 'Administrasi Pendidikan', '', '', '', '', '', '', '', '', '', '', 525121, 'Belanja Barang Persediaan Barang Konsumsi - BLU', '4471.DBA.01.60.D.525121.', NULL, NULL),
 (6820, 4471, 'Peningkatan Kualitas dan Kapasitas Perguruan Tinggi', 'DBA', 'Pendidikan Tinggi[Base Line]', 1, 'Layanan Pendidikan (PNBP/BLU)', 60, 'Penyelenggaraan Layanan Pendidikan Perguruan Tinggi', 'D', 'Administrasi Pendidikan', '', '', '', '', '', '', '', '', '', '', 525123, 'Belanja Barang Persediaan Pemeliharaan - BLU', '4471.DBA.01.60.D.525123.', NULL, NULL),
-(9434, 4471, 'Peningkatan Kualitas dan Kapasitas Perguruan Tinggi', 'DBA', 'Pendidikan Tinggi[Base Line]', 1, 'Layanan Pendidikan (PNBP/BLU)', 60, 'Penyelenggaraan Layanan Pendidikan Perguruan Tinggi', 'D', 'Administrasi Pendidikan', '', '', '', '', '', '', '', '', '', '', 525153, NULL, '4471.DBA.01.60.D.525153.', NULL, NULL),
+(9434, 4471, 'Peningkatan Kualitas dan Kapasitas Perguruan Tinggi', 'DBA', 'Pendidikan Tinggi[Base Line]', 1, 'Layanan Pendidikan (PNBP/BLU)', 60, 'Penyelenggaraan Layanan Pendidikan Perguruan Tinggi', 'D', 'Administrasi Pendidikan', '', '', '', '', '', '', '', '', '', '', 525153, 'Belanja Barang Persediaan BLU -\nPenanganan\nPandemi COVID-19', '4471.DBA.01.60.D.525153.', '2022-07-13', NULL),
 (6199, 4471, 'Peningkatan Kualitas dan Kapasitas Perguruan Tinggi', 'DBA', 'Pendidikan Tinggi[Base Line]', 1, 'Layanan Pendidikan (PNBP/BLU)', 60, 'Penyelenggaraan Layanan Pendidikan Perguruan Tinggi', 'D', 'Administrasi Pendidikan', '', '', '', '', '', '', '', '', '', '', 525154, 'Belanja Jasa BLU - Penanganan Pandemi COVID-19', '4471.DBA.01.60.D.525154.', NULL, NULL),
 (5076, 4471, 'Peningkatan Kualitas dan Kapasitas Perguruan Tinggi', 'DBA', 'Pendidikan Tinggi[Base Line]', 1, 'Layanan Pendidikan (PNBP/BLU)', 60, 'Penyelenggaraan Layanan Pendidikan Perguruan Tinggi', 'F', 'Kegiatan Kemahasiswaan', '', '', '', '', '', '', '', '', '', '', 525112, 'Belanja Barang', '4471.DBA.01.60.F.525112.', NULL, NULL),
 (4454, 4471, 'Peningkatan Kualitas dan Kapasitas Perguruan Tinggi', 'DBA', 'Pendidikan Tinggi[Base Line]', 1, 'Layanan Pendidikan (PNBP/BLU)', 60, 'Penyelenggaraan Layanan Pendidikan Perguruan Tinggi', 'F', 'Kegiatan Kemahasiswaan', '', '', '', '', '', '', '', '', '', '', 525113, 'Belanja Jasa', '4471.DBA.01.60.F.525113.', NULL, NULL),
@@ -299,10 +370,55 @@ CREATE TABLE `Tb_KKM` (
 --
 
 INSERT INTO `Tb_KKM` (`id`, `kd_ikk`, `indikator_kinerja_kegiatan`, `kk_mendikbud`, `kk_menkeu`, `satuan`, `bobot`, `updated_at`, `created_at`) VALUES
-(32, 'IKU 1.2', 'Persentase lulusan 51 dan D4/D3/D2 yang 30 menghabiskan paling sedikit 20 (dua puluh} sks di luar kampus; atau meraih prestasi paling rendah tingkat nasional.', '80', '70', '%', 100, '2022-07-07', '2022-07-07'),
+(32, 'IKU 1.1', 'Persentase lulusan 51 dan D4/D3/02 yang berhasil mendapat pekerjaan; melanjutkan studi; atau menjadi wiraswasta.', '50', '70', '%', 80, '2022-07-07', '2022-07-07'),
 (33, 'IKU 2.2', 'Persentase dosen tetap berkualifikasi akademik S3; memiliki sertifikat kompetensi/profesi yang diakui oleh industri dan dunia kerja; atau berasal dari kalangan praktisi profesional, dunia industri, atau dunia kerja.', '70', '80', '%', 90, '2022-07-07', '2022-07-07'),
-(34, 'IKU 1.1', 'Persentase lulusan 51 dan D4/D3/02 yang berhasil mendapat pekerjaan; melanjutkan studi; atau menjadi wiraswasta.', '59', '70', '%', 10, '2022-07-07', '2022-07-07'),
-(35, 'IKU 2.1', 'Persentase dosen yang berkegiatan trldarma dikampus lain, di 05100 berdasarkan bidang ilmu (0S100 by subject), bekerja sebagai praktisi di dunia industri, atau membina mahasiswa yang berhasil meraih prestasi paling rendah tingkat nasional dalam 5 (lima) Tahun Terakhir', '70', '80', '%', 90, '2022-07-07', '2022-07-07');
+(35, 'IKU 2.1', 'Persentase dosen yang berkegiatan trldarma dikampus lain, di 05100 berdasarkan bidang ilmu (0S100 by subject), bekerja sebagai praktisi di dunia industri, atau membina mahasiswa yang berhasil meraih prestasi paling rendah tingkat nasional dalam 5 (lima) Tahun Terakhir', '70', '80', '%', 90, '2022-07-07', '2022-07-07'),
+(36, 'IKU 1.2', 'Persentase lulusan 51 dan D4/D3/D2 yang 30 menghabiskan paling sedikit 20 (dua puluh} sks di luar kampus; atau meraih prestasi paling rendah tingkat nasional.', '70', '90', '%', 56, '2022-07-07', '2022-07-07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Tb_KODEFIKASI_JENISBELANJA`
+--
+
+CREATE TABLE `Tb_KODEFIKASI_JENISBELANJA` (
+  `id` int(11) NOT NULL,
+  `A1` varchar(5) DEFAULT NULL,
+  `kodefikasi_1` varchar(100) DEFAULT NULL,
+  `A2` varchar(5) DEFAULT NULL,
+  `kodefikasi_2` varchar(100) DEFAULT NULL,
+  `A3` varchar(5) DEFAULT NULL,
+  `kodefikasi_3` varchar(100) DEFAULT NULL,
+  `A4` varchar(5) DEFAULT NULL,
+  `kodefikasi_4` varchar(100) DEFAULT NULL,
+  `A5` varchar(5) DEFAULT NULL,
+  `kodefikasi_5` varchar(100) DEFAULT NULL,
+  `akun` varchar(10) DEFAULT NULL,
+  `jenis_belanja` varchar(100) DEFAULT NULL,
+  `jenis_rab` varchar(100) DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `created_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Tb_KODEFIKASI_JENISBELANJA`
+--
+
+INSERT INTO `Tb_KODEFIKASI_JENISBELANJA` (`id`, `A1`, `kodefikasi_1`, `A2`, `kodefikasi_2`, `A3`, `kodefikasi_3`, `A4`, `kodefikasi_4`, `A5`, `kodefikasi_5`, `akun`, `jenis_belanja`, `jenis_rab`, `updated_at`, `created_at`) VALUES
+(25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '537112', 'Belanja Modal Peralatan dan Mesin - BLU', 'RAB_PERALATAN', '2022-07-14', NULL),
+(26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '537115', 'Belanja Modal Lainnya - BLU', 'RAB_PERALATAN', '2022-07-15', NULL),
+(27, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '537113', 'Belanja Modal Gedung dan Bangunan - BLU', 'RAB_GEDUNG', '2022-07-14', NULL),
+(28, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525112', 'Belanja Barang', 'RAB_PERALATAN', '2022-07-14', NULL),
+(29, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525115', 'Belanja Perjalanan', 'RAB_KEGIATAN', '2022-07-14', NULL),
+(30, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525119', 'Belanja Penyediaan Barang dan Jasa BLU Lainnya', 'RAB_PERALATAN', '2022-07-14', NULL),
+(31, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525121', 'Belanja Barang Persediaan Barang Konsumsi - BLU', 'RAB_PERALATAN', '2022-07-14', NULL),
+(32, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525113', 'Belanja Jasa', 'RAB_KEGIATAN', '2022-07-14', NULL),
+(33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525123', 'Belanja Barang Persediaan Pemeliharaan - BLU', 'RAB_PERALATAN', '2022-07-14', NULL),
+(34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525153', 'Belanja Barang Persediaan BLU - Penanganan Pandemi...', 'RAB_PERALATAN', '2022-07-14', NULL),
+(35, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525154', 'Belanja Jasa BLU - Penanganan Pandemi COVID-19', 'RAB_KEGIATAN', '2022-07-14', NULL),
+(36, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525124', 'Belanja Barang Persediaan Pita Cukai, Materai dan ...', 'RAB_PERALATAN', '2022-07-14', NULL),
+(37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525114', 'Belanja Pemeliharaan', 'RAB_GEDUNG', '2022-07-15', NULL),
+(38, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '525111', 'Belanja Gaji dan Tunjangan', 'RAB_KEGIATAN', '2022-07-14', NULL);
 
 -- --------------------------------------------------------
 
@@ -362,9 +478,107 @@ CREATE TABLE `Tb_PERKIN` (
 --
 
 INSERT INTO `Tb_PERKIN` (`id`, `kd_ikk`, `indikator_kinerja_kegiatan`, `kk_mendikbud`, `kk_menkeu`, `satuan`, `bobot`, `tw_1`, `tw_2`, `tw_3`, `tw_4`, `status`, `jumlah_bobot`, `updated_at`, `created_at`) VALUES
-(47, 'IKU 1.1', 'Persentase lulusan 51 dan D4/D3/02 yang berhasil mendapat pekerjaan; melanjutkan studi; atau menjadi wiraswasta.', '59', '70', '%', 10, '10', '20', '30', '40', 'Approved', '100', '2022-07-07', '2022-07-07'),
+(47, 'IKU 1.1', 'Persentase lulusan 51 dan D4/D3/02 yang berhasil mendapat pekerjaan; melanjutkan studi; atau menjadi wiraswasta.', '59', '70', '%', 10, '10', '20', '30', '40', 'Approved', '100', '2022-07-09', '2022-07-07'),
 (48, 'IKU 2.1', 'Persentase dosen yang berkegiatan trldarma dikampus lain, di 05100 berdasarkan bidang ilmu (0S100 by subject), bekerja sebagai praktisi di dunia industri, atau membina mahasiswa yang berhasil meraih prestasi paling rendah tingkat nasional dalam 5 (lima) Tahun Terakhir', '70', '80', '%', 90, '40', '50', '60', '80', 'Approved', '230', '2022-07-07', '2022-07-07'),
 (51, 'IKU 2.2', 'Persentase dosen tetap berkualifikasi akademik S3; memiliki sertifikat kompetensi/profesi yang diakui oleh industri dan dunia kerja; atau berasal dari kalangan praktisi profesional, dunia industri, atau dunia kerja.', '70', '80', '%', 90, '20', '30', '40', '50', 'Approved', '140', '2022-07-07', '2022-07-07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Tb_RABGedung`
+--
+
+CREATE TABLE `Tb_RABGedung` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `rincian_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rincian_komponen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kebutuhan_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `akun` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_belanja` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `latlong` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `luas_bangunan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah_gedung` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah_lantai` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ruang_kuliah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ruang_lab` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ruang_kantor` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lainnya` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kesesuaian_gedung` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sertifikat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `simak_BMN` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PUPR` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dokumen_IMB` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dokumen_AMDAL` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dokumen_RKS` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `DED_AWAL` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `DED_REVIEW` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nilai_perencanaan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nilai_struktur` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nilai_me` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nilai_landscape` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nilai_pengawasan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `proposal_project` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rab_detail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `perencanaan_gambar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah_nilai` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Tb_RABKegiatan`
+--
+
+CREATE TABLE `Tb_RABKegiatan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `rincian_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rincian_komponen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kebutuhan_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `akun` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_belanja` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kuantitas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `satuan_kuantitas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `durasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `satuan_durasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `satuan_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `biaya_satuan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pajak` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah_biaya` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PNBP_Uniker` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PNBP_Univ` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Tb_RABPeralatan`
+--
+
+CREATE TABLE `Tb_RABPeralatan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `rincian_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rincian_komponen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kebutuhan_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `akun` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_belanja` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `merk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `eCatalog` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_produk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `berkefungsian` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kuantitas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `satuan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `harga_satuan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah_biaya` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -399,7 +613,7 @@ CREATE TABLE `Tb_RANGKA` (
 
 CREATE TABLE `Tb_REKAT` (
   `id` int(11) NOT NULL,
-  `unit_kerja` varchar(100) NOT NULL,
+  `unit_kerja` varchar(100) DEFAULT NULL,
   `kd_ikk` varchar(200) NOT NULL,
   `indikator_kinerja_kegiatan` text NOT NULL,
   `kd_program` varchar(200) NOT NULL,
@@ -407,13 +621,26 @@ CREATE TABLE `Tb_REKAT` (
   `kd_keg` varchar(200) NOT NULL,
   `rincian_kegiatan` text NOT NULL,
   `TOR` varchar(200) NOT NULL,
+  `A1` varchar(5) NOT NULL,
+  `A2` varchar(5) NOT NULL,
+  `A3` varchar(5) NOT NULL,
+  `A4` varchar(5) NOT NULL,
+  `A5` varchar(5) NOT NULL,
   `kd_rk` varchar(200) NOT NULL,
   `rincian_komponen` text NOT NULL,
   `akun` varchar(200) NOT NULL,
-  `tahun` date NOT NULL,
+  `tahun` varchar(10) DEFAULT NULL,
   `updated_at` date NOT NULL,
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Tb_REKAT`
+--
+
+INSERT INTO `Tb_REKAT` (`id`, `unit_kerja`, `kd_ikk`, `indikator_kinerja_kegiatan`, `kd_program`, `program`, `kd_keg`, `rincian_kegiatan`, `TOR`, `A1`, `A2`, `A3`, `A4`, `A5`, `kd_rk`, `rincian_komponen`, `akun`, `tahun`, `updated_at`, `created_at`) VALUES
+(3, NULL, 'IKU 1.1', 'Persentase dosen yang berkegiatan trldarma dikampus lain, di 05100 berdasarkan bidang ilmu (0S100 by subject), bekerja sebagai praktisi di dunia industri, atau membina mahasiswa yang berhasil meraih prestasi paling rendah tingkat nasional dalam 5 (lima) Tahun Terakhir', 'P 1.1.1.', 'Pemberdayaan potensi dosen untuk dapat dimanfaatkan sebagai penguatan kerjasama dengan PT Lain / Mitra', 'K 2.1.1.6.', 'Artikel /Jurnal Ilmiah', 'Cheklist persyaratan administrasi peserta seleksi tahun 2022.pdf', '5', '52', '525', '5251', '52511', 'D', 'Administrasi Pendidikan', '525113', '2022', '2022-07-15', '2022-07-07'),
+(10, NULL, 'IKU 2.1', 'Persentase dosen yang berkegiatan trldarma dikampus lain, di 05100 berdasarkan bidang ilmu (0S100 by subject), bekerja sebagai praktisi di dunia industri, atau membina mahasiswa yang berhasil meraih prestasi paling rendah tingkat nasional dalam 5 (lima) Tahun Terakhir', 'P 2.1.2.', 'Penguatan Kapasitas Dosen USK yang bersertifikasi kompetensi untuk dimanfaatkan oleh lembaga mitra', 'K 2.1.1.4.', 'Pelatihan Dosen dan Instruktur', '10.1.1.617.4883.pdf', '5', '53', '537', '5371', '53711', 'B', 'Pengadaan Meubelair Pendukung Perkantoran', '537112', NULL, '2022-07-15', '2022-07-15');
 
 -- --------------------------------------------------------
 
@@ -449,6 +676,47 @@ INSERT INTO `Tb_VERPERKIN` (`id`, `kd_ikk`, `indikator_kinerja_kegiatan`, `kk_me
 (47, 'IKU 1.1', 'Persentase lulusan 51 dan D4/D3/02 yang berhasil mendapat pekerjaan; melanjutkan studi; atau menjadi wiraswasta.', '59', '70', '', '10', '20', '30', '40', '10', '100', 'Approved', 'Approved', 'okay', '2022-07-07', '2022-07-07'),
 (48, 'IKU 2.1', 'Persentase dosen yang berkegiatan trldarma dikampus lain, di 05100 berdasarkan bidang ilmu (0S100 by subject), bekerja sebagai praktisi di dunia industri, atau membina mahasiswa yang berhasil meraih prestasi paling rendah tingkat nasional dalam 5 (lima) Tahun Terakhir', '70', '80', '', '40', '50', '60', '80', '90', '230', 'Approved', 'Approved', 'noooo', '2022-07-07', '2022-07-07'),
 (51, 'IKU 2.2', 'Persentase dosen tetap berkualifikasi akademik S3; memiliki sertifikat kompetensi/profesi yang diakui oleh industri dan dunia kerja; atau berasal dari kalangan praktisi profesional, dunia industri, atau dunia kerja.', '70', '80', NULL, '20', '30', '40', '50', '90', '140', 'Approved', 'Approved', 'CCC', '2022-07-07', '2022-07-07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Tb_VIRTUAL`
+--
+
+CREATE TABLE `Tb_VIRTUAL` (
+  `id` int(11) NOT NULL,
+  `sasaran` text NOT NULL,
+  `biaya_ss` varchar(100) NOT NULL,
+  `indikator_kinerja_kegiatan` text NOT NULL,
+  `biaya_ikk` varchar(100) NOT NULL,
+  `program` text NOT NULL,
+  `biaya_pr` varchar(100) NOT NULL,
+  `rincian_kegiatan` text NOT NULL,
+  `biaya_rkeg` varchar(100) NOT NULL,
+  `rincian_komponen` text NOT NULL,
+  `biaya_rkom` varchar(100) NOT NULL,
+  `kebutuhan_kegiatan` text NOT NULL,
+  `biaya_kk` varchar(100) NOT NULL,
+  `akun` varchar(10) NOT NULL,
+  `biaya_ak` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -492,6 +760,33 @@ ALTER TABLE `data_IKK`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
 -- Indexes for table `Tb_IKK`
 --
 ALTER TABLE `Tb_IKK`
@@ -504,6 +799,12 @@ ALTER TABLE `Tb_KKM`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `Tb_KODEFIKASI_JENISBELANJA`
+--
+ALTER TABLE `Tb_KODEFIKASI_JENISBELANJA`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `Tb_PENANDATANGAN`
 --
 ALTER TABLE `Tb_PENANDATANGAN`
@@ -513,6 +814,24 @@ ALTER TABLE `Tb_PENANDATANGAN`
 -- Indexes for table `Tb_PERKIN`
 --
 ALTER TABLE `Tb_PERKIN`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `Tb_RABGedung`
+--
+ALTER TABLE `Tb_RABGedung`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `Tb_RABKegiatan`
+--
+ALTER TABLE `Tb_RABKegiatan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `Tb_RABPeralatan`
+--
+ALTER TABLE `Tb_RABPeralatan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -534,6 +853,19 @@ ALTER TABLE `Tb_VERPERKIN`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `Tb_VIRTUAL`
+--
+ALTER TABLE `Tb_VIRTUAL`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -542,6 +874,24 @@ ALTER TABLE `Tb_VERPERKIN`
 --
 ALTER TABLE `data_IKK`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+
+--
+-- AUTO_INCREMENT for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Tb_IKK`
@@ -553,7 +903,13 @@ ALTER TABLE `Tb_IKK`
 -- AUTO_INCREMENT for table `Tb_KKM`
 --
 ALTER TABLE `Tb_KKM`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `Tb_KODEFIKASI_JENISBELANJA`
+--
+ALTER TABLE `Tb_KODEFIKASI_JENISBELANJA`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `Tb_PENANDATANGAN`
@@ -568,6 +924,24 @@ ALTER TABLE `Tb_PERKIN`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
+-- AUTO_INCREMENT for table `Tb_RABGedung`
+--
+ALTER TABLE `Tb_RABGedung`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Tb_RABKegiatan`
+--
+ALTER TABLE `Tb_RABKegiatan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Tb_RABPeralatan`
+--
+ALTER TABLE `Tb_RABPeralatan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `Tb_RANGKA`
 --
 ALTER TABLE `Tb_RANGKA`
@@ -577,13 +951,25 @@ ALTER TABLE `Tb_RANGKA`
 -- AUTO_INCREMENT for table `Tb_REKAT`
 --
 ALTER TABLE `Tb_REKAT`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `Tb_VERPERKIN`
 --
 ALTER TABLE `Tb_VERPERKIN`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `Tb_VIRTUAL`
+--
+ALTER TABLE `Tb_VIRTUAL`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
