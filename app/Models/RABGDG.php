@@ -42,5 +42,8 @@ class RABGDG extends Model
         ,"rab_detail"
         ,"perencanaan_gambar"
         ,"jumlah_nilai"
+        ,"verifikasi_tim"
+        ,"verifikasi_pimpinan"
+        ,"tanggapan"
     ];
 }

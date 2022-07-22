@@ -50,6 +50,7 @@
                         <th>RAB Detail (excel)</th>
                         <th>Perencanaan Gambar (pdf)</th>
                         <th>Jumlah Nilai (Rp)</th>
+                        <th>status</th>
                         <th>Aksi</th>
                        </tr>
                     </thead>
@@ -131,6 +132,13 @@
                         </form> <div class="wrap-text"><i class="mdi mdi-file-pdf fs-10 p-1"></i><span class="mt-1 fs-8" id="perencanaan_name"></span></div>
                         <label id="LABELperencanaan"> {{ $data->perencanaan_gambar }}</label></td>
                         <td contenteditable="true"> {{ $data->jumlah_nilai }}</td>
+                        <td>
+                            @if( $data->verifikasi_tim == "Setuju" && $data->verifikasi_pimpinan == "Setuju")
+                            <span style="color:yellow">Disetejui</span>
+                            @else
+                            <span>Belum Disetejui</span>
+                            @endif
+                        </td>
                         <td> 
                             <div class="btn-group">
                                 <span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span>

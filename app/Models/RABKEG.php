@@ -28,5 +28,8 @@ class RABKEG extends Model
         ,"PNBP_Uniker" 
         ,"PNBP_Univ" 
         ,"tor"  
+        ,"verifikasi_tim"
+        ,"verifikasi_pimpinan"
+        ,"tanggapan"
     ];
 }

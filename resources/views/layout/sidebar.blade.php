@@ -55,7 +55,7 @@
                                     <li><a href="{{ route('vRekat.index')}}" class="slide-item ikk_btn">RKT</a></li>
                                      <li><a href="{{ route('vRabKeg.index')}}" class="ps-5 slide-item ikk_btn">RAB KEGIATAN</a></li>
                                     <li><a href="{{ route('vRabPer.index')}}" class="ps-5 slide-item ikk_btn">RAB PERALATAN</a></li>
-                                    <li><a href="{{ route('vRabPer.index')}}" class="ps-5 slide-item ikk_btn">RAB GEDUNG</a></li>
+                                    <li><a href="{{ route('vRabGdg.index')}}" class="ps-5 slide-item ikk_btn">RAB GEDUNG</a></li>
                                 </ul>
                             </li>
   

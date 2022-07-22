@@ -9,10 +9,10 @@ $(document).ready(function() {
 		let id 							= setiapBaris[0]
 		let verifikasi_perencanaan		= $(this).closest('tr').find('select.verifikasi_perencanaan').val()
 		let verifikasi_spi				= $(this).closest('tr').find('select.verifikasi_spi').val()
-		let tanggapan					= setiapBaris[20]
+		let tanggapan					= setiapBaris[17]
 		$.ajax({
 	        type:'POST',
-		    url:" {{ route('vRabKeg.add') }} ",
+		    url:" {{ route('vRabPer.add') }} ",
 	        data:{
 		    	"_token": "{{ csrf_token() }}"
 				,id

@@ -32,6 +32,7 @@
                             <th>satuan</th>
                             <th>Harga satuan(Rp)</th> 
                             <th>Jumlah Biaya(Rp)</th>
+                            <th>status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -59,6 +60,13 @@
                         <td contenteditable="true"> {{ $data->satuan }}</td>
                         <td contenteditable="true"> {{ $data->harga_satuan }}</td>
                         <td contenteditable="true"> {{ $data->jumlah_biaya }}</td>
+                        <td>
+                            @if( $data->verifikasi_tim == "Setuju" && $data->verifikasi_pimpinan == "Setuju")
+                            <span style="color:yellow">Disetejui</span>
+                            @else
+                            <span>Belum Disetejui</span>
+                            @endif
+                        </td>
                         <td> 
                             <div class="btn-group">
                             <span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span>

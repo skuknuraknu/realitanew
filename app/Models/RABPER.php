@@ -25,5 +25,8 @@ class RABPER extends Model
         ,"satuan"	
         ,"harga_satuan"	
         ,"jumlah_biaya"
+        ,"verifikasi_tim"
+        ,"verifikasi_pimpinan"
+        ,"tanggapan"
     ];
 }

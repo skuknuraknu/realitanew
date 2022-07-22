@@ -127,8 +127,8 @@ Route::post('/VERREKAT/add', [VerREKATController::class, 'add'])->name('vRekat.a
 Route::get('/VERRABKEGIATAN', [VerRABKEGIATANController::class, 'index'])->name('vRabKeg.index');
 Route::post('/VERRABKEGIATAN/add', [VerRABKEGIATANController::class, 'add'])->name('vRabKeg.add');
 // Verifikasi rab peralatan
-Route::get('/VERRABPERALATAN', [VerPERLATANController::class, 'index'])->name('vRabPer.index');
-Route::post('/VERRABPERALATAN/add', [VerPERLATANController::class, 'add'])->name('vRabPer.add');
+Route::get('/VERRABPERALATAN', [VerPERALATANController::class, 'index'])->name('vRabPer.index');
+Route::post('/VERRABPERALATAN/add', [VerPERALATANController::class, 'add'])->name('vRabPer.add');
 // Verifikasi rab gedung
 Route::get('/VERRABGEDUNG', [VerGEDUNGController::class, 'index'])->name('vRabGdg.index');
 Route::post('/VERRABGEDUNG/add', [VerGEDUNGController::class, 'add'])->name('vRabGdg.add');

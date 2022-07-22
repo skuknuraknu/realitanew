@@ -9,7 +9,7 @@
             </div>
         <div class="card-body">
             <div class="table-responsive">
-            <table class="tabel-verrekat table table-bordered border mb-0" id="new-edit">
+            <table class="tabel-verkeg table table-bordered border mb-0" id="new-edit">
                 <thead>
                     <tr>
                           <th>Id</th>
@@ -30,8 +30,9 @@
                           <th>PNBP Uniker (Rp)</th>
                           <th>PNBP Univ (Rp)</th>
                           <th>Upload Tor</th>
-                          <th>verifikasi perencanaan</th>
-                          <th>verifikasi spi</th>
+                          <th>verifikasi tim</th>
+                          <th>verifikasi pimpinan</th>
+                          <th>tanggapan</th>
                           <th>Aksi</th>
                     </tr>
                 </thead>
@@ -39,67 +40,37 @@
                 @foreach($rabkeg as $data)
                     <tr>
                         <td> {{ $data->id }} </td>
-                        <td contenteditable="true"> {{ $data->rincian_kegiatan }}</td>
-                        <td contenteditable="true"> {{ $data->rincian_komponen }}</td>
-                        <td contenteditable="true"> {{ $data->akun }} </td>
-                        <td contenteditable="true">{{ $data->kebutuhan_kegiatan}}</td>
-                        <td contenteditable="true">{{ $data->jenis_belanja}}</td>
-                        <td contenteditable="true">{{ $data->kuantitas}}</td>
-                        <td contenteditable="true">{{ $data->satuan_kuantitas}}</td>
-                        <td contenteditable="true">{{ $data->durasi}}</td>
-                        <td contenteditable="true">{{ $data->satuan_durasi}}</td>
-                        <td contenteditable="true">{{ $data->kegiatan}}</td>
-                        <td contenteditable="true">{{ $data->satuan_kegiatan}}</td>
-                        <td contenteditable="true">{{ $data->biaya_satuan}}</td>
-                        <td contenteditable="true">{{ $data->pajak}}</td>
-                        <td contenteditable="true">{{ $data->jumlah_biaya}}</td>
-                        <td contenteditable="true">{{ $data->PNBP_Uniker}}</td>
-                        <td contenteditable="true">{{ $data->PNBP_Univ}}</td>
+                        <td> {{ $data->rincian_kegiatan }}</td>
+                        <td> {{ $data->rincian_komponen }}</td>
+                        <td> {{ $data->akun }} </td>
+                        <td>{{ $data->kebutuhan_kegiatan}}</td>
+                        <td>{{ $data->jenis_belanja}}</td>
+                        <td>{{ $data->kuantitas}}</td>
+                        <td>{{ $data->satuan_kuantitas}}</td>
+                        <td>{{ $data->durasi}}</td>
+                        <td>{{ $data->satuan_durasi}}</td>
+                        <td>{{ $data->kegiatan}}</td>
+                        <td>{{ $data->satuan_kegiatan}}</td>
+                        <td>{{ $data->biaya_satuan}}</td>
+                        <td>{{ $data->pajak}}</td>
+                        <td>{{ $data->jumlah_biaya}}</td>
+                        <td>{{ $data->PNBP_Uniker}}</td>
+                        <td>{{ $data->PNBP_Univ}}</td>
+                        <td>{{ $data->tor }} </td>
                         <td>
-                            <div class="row">
-                                <div class="col-md-6"></div>
-                                <div class="col-md-6">
-                                    <div class="btn-group mt-2 mb-2">
-                                        <button type="button"
-                                            class="px-1 py-1 btn btn-github btn-pill dropdown-toggle"
-                                            data-bs-toggle="dropdown"> <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu  kotak-list" role="menu">
-                                            <li class="dropdown-plus-title">
-                                                Pilih
-                                                <b class="fa fa-angle-up" aria-hidden="true"></b>
-                                            </li>
-                                            <li id="ver_perencanaan"><a
-                                                    href="javascript:void(0)">Approved</a></li>
-                                            <li id="ver_perencanaan"><a href="javascript:void(0)">Not approved</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <select name="verifikasi_perencanaan"  style="width:200px" type="text" class="verifikasi_perencanaan bg-dark my-2 text-white d-inline select2 w-auto required">
+                                <option value="SILAHKAN PILIH" selected="selected">Pilih</option>
+                                <option value="Setuju">Setuju</option>
+                                <option value="Tolak">Tolak</option>
+                            </select>
                             <span id="status_perencanaan">{{ $data->verifikasi_perencanaan }}</span>
                         </td>
                         <td>
-                            <div class="row">
-                                <div class="col-md-6"></div>
-                                <div class="col-md-6">
-                                    <div class="btn-group mt-2 mb-2">
-                                        <button type="button"
-                                            class="px-1 py-1 btn btn-github btn-pill dropdown-toggle"
-                                            data-bs-toggle="dropdown"> <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu kotak-list" role="menu">
-                                            <li class="dropdown-plus-title">
-                                                Pilih
-                                                <b class="fa fa-angle-up" aria-hidden="true"></b>
-                                            </li>
-                                            <li id="ver_spi"><a href="javascript:void(0)">Approved</a>
-                                            </li>
-                                            <li id="ver_spi"><a href="javascript:void(0)">Not approved</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <select name="verifikasi_spi"  style="width:200px" type="text" class="verifikasi_spi bg-dark my-2 text-white d-inline select2 w-auto required">
+                                <option value="SILAHKAN PILIH" selected="selected">Pilih</option>
+                                <option value="Setuju">Setuju</option>
+                                <option value="Tolak">Tolak</option>
+                            </select>
                             <span id="status_spi">{{ $data->verifikasi_spi }}</span>
                         </td>
                         <td class="tanggapan" contenteditable="true"> {{ $data->tanggapan }}</td>
@@ -120,9 +91,9 @@
 
 {{-- `https://stackoverflow.com/questions/44674255/how-to-use-directive-push-in-blade-template-laravel` --}}
 @push('yss')
-    @include('VERIFIKASI.REKAT.css')
+    @include('VERIFIKASI.RAB_KEGIATAN.css')
 @endpush
 
 @push('scripts')
-    @include('VERIFIKASI.REKAT.script')
+    @include('VERIFIKASI.RAB_KEGIATAN.script')
 @endpush

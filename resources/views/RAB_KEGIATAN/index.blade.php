@@ -35,6 +35,7 @@
                           <th>PNBP Uniker (Rp)</th>
                           <th>PNBP Univ (Rp)</th>
                           <th>Upload Tor</th>
+                          <th>status</th>
                           <th>Aksi</th>
                        </tr>
                     </thead>
@@ -67,6 +68,13 @@
                                     <input type="file" name="file" class="file" id="file">
                                     <label id="torlabel"> {{ $data->tor }}</label>
                                 </form>
+                            </td>
+                            <td>
+                                @if( $data->verifikasi_tim == "Setuju" && $data->verifikasi_pimpinan == "Setuju")
+                                <span style="color:yellow">Disetejui</span>
+                                @else
+                                <span>Belum Disetejui</span>
+                                @endif
                             </td>
                             <td>
                                 <div class="btn-group">

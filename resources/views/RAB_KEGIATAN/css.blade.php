@@ -5,4 +5,8 @@
 	.head{
 		width: 200px;
 	}
+	input[type=file]{
+    width:90px;
+    color:transparent;
+	}
 </style>
