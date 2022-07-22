@@ -1,7 +1,10 @@
 
 <script type="text/javascript">
 	$( document ).ready(function() {
-		$('.tabel-ikk').DataTable();
+	    $('.tabel-ikk ').DataTable({
+			"processing": true,
+    		"serverSide": true,
+        });
 		//Saat tombol save di klik
     	$(document).on('click', ".save_btn", function(e){
     		//Mengambil konten / isi dari setiap cell tabel

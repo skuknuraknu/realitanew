@@ -52,9 +52,25 @@
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li>
                                     {{-- <li><a href="{{ route('ikk.index')}}" class="slide-item">Indikator Kinerja Kegiatan</a></li> --}}
                                     <li><a href="{{ route('verPerkin.index')}}" class="slide-item ikk_btn">Perkin</a></li>
+                                    <li><a href="{{ route('vRekat.index')}}" class="slide-item ikk_btn">RKT</a></li>
+                                     <li><a href="{{ route('vRabKeg.index')}}" class="ps-5 slide-item ikk_btn">RAB KEGIATAN</a></li>
+                                    <li><a href="{{ route('vRabPer.index')}}" class="ps-5 slide-item ikk_btn">RAB PERALATAN</a></li>
+                                    <li><a href="{{ route('vRabPer.index')}}" class="ps-5 slide-item ikk_btn">RAB GEDUNG</a></li>
                                 </ul>
                             </li>
-
+  
+                              <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Data Report</span><i class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li>
+                                    {{-- <li><a href="{{ route('ikk.index')}}" class="slide-item">Indikator Kinerja Kegiatan</a></li> --}}
+                                    <li><a href="#" class="slide-item ikk_btn">Report Perkin</a></li>
+                                    <li><a href="#" class="slide-item ikk_btn">Report Rekat</a></li>
+                                    <li><a href="#" class="slide-item ikk_btn">Report Rab Kegiatan</a></li>
+                                    <li><a href="#" class="slide-item ikk_btn">Report Rab Peralatan</a></li>
+                                    <li><a href="#" class="slide-item ikk_btn">Report Rab Gedung</a></li>
+                                </ul>
+                            </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Data Print</span><i class="angle fe fe-chevron-right"></i></a>
                                 <ul class="slide-menu">

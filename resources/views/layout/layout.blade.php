@@ -340,7 +340,7 @@
             @include('layout.footer')
         </div>
     </div>
-    <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+    {{-- <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script> --}}
     <script src="{{ asset('assets/plugins/jquery/jquery.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/popper.min.html') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.html') }}"></script>

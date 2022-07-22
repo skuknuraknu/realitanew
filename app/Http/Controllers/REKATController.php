@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\IKK;
 use App\Models\Rekat;
 use App\Models\RANGKA;
+use App\Models\RABKEG;
+use App\Models\RABPER;
+use App\Models\RABGDG;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -20,7 +23,22 @@ class REKATController extends Controller
         // return view dengan compact data
         return view('REKAT.index', compact('rekat','ikk','rk'));
     }
-
+    public function updateGetProg(Request $x){
+        $kumpulanPROGRAM = DB::select( DB::raw("SELECT DISTINCT kd_pr from data_IKK where kd_pr LIKE '%$x->kd_programSPAN%'"));
+        return $kumpulanPROGRAM;
+    }
+    public function updateGetIkk(Request $x){
+        $kumpulanPROGRAM = DB::select( DB::raw("SELECT DISTINCT kd_ikk from data_IKK where kd_ikk LIKE '%$x->kd_ikkSPAN%'"));
+        return $kumpulanPROGRAM;
+    }
+    public function updateGetKeg(Request $req){
+         $kumpulanKEGIATAN = DB::select( DB::raw("select kd_keg,rincian_kegiatan from data_IKK where kd_keg LIKE '%K $req->kd_programVAL%'"));
+        return $kumpulanKEGIATAN;
+    }
+    public function updateGetAkun(Request $req){
+        $kumpulanAKUN = DB::select( DB::raw("SELECT kd_ak FROM rangka WHERE nama_sk = '$req->sub_komponen'"));
+        return $kumpulanAKUN;
+    }
     // Fungsi untuk get data
     public function get(Request $req)
     {
@@ -66,7 +84,7 @@ class REKATController extends Controller
     }
 
     public function getKodeKegiatan(Request $req){
-        $dataKd_Kegiatan = DB::select( DB::raw("SELECT kd_keg FROM data_IKK WHERE rincian_kegiatan = '$req->rincian_kegiatan'"));
+        $dataKd_Kegiatan = DB::select( DB::raw("SELECT kd_keg FROM data_IKK WHERE rincian_kegiatan = '$req->kd_kegiatan'"));
         return $dataKd_Kegiatan;
     }
     
@@ -108,10 +126,8 @@ class REKATController extends Controller
         $A5 = substr($kode_akun,0,5);
         $TOR = $req->tor;
 
-        if(empty($TOR) || empty($req->kd_ikk) ){
-            // SELECT * FROM `rangka` WHERE kd_ak = '537112' AND nama_sk = 'Pengadaan Peralatan Pendukung Pembelajaran';
+        if($req->kd_ikk == "SILAHKAN PILIH" && $req->kd_program == "SILAHKAN PILIH" && $req->rincian_kegiatan == "SILAHKAN PILIH"){
             $dataKODE_SK = DB::select( DB::raw("SELECT kd_sk FROM rangka WHERE nama_sk = '$req->sub_komponenSPAN'"));
-            $dataTOR = DB::select( DB::raw("SELECT TOR FROM Tb_REKAT WHERE kd_ikk = '$req->kd_ikkSPAN'"));
 
             $data = [
                 'kd_ikk' =>  $req->kd_ikkSPAN
@@ -119,8 +135,7 @@ class REKATController extends Controller
                 ,'kd_program' => $req->kd_programSPAN  
                 ,'program' => $req->program 
                 ,'kd_keg' => $req->kd_kegiatanSPAN 
-                ,'rincian_kegiatan' => $req->rincian_kegiatan
-                ,'TOR' => $dataTOR['0']->TOR
+                ,'rincian_kegiatan' => $req->rincian_kegiatanSPAN
                 ,'A1' => $A1
                 ,'A2' => $A2
                 ,'A3' => $A3
@@ -151,7 +166,6 @@ class REKATController extends Controller
                 ,'program' => $req->program 
                 ,'kd_keg' => $req->kd_kegiatanSPAN
                 ,'rincian_kegiatan' => $req->rincian_kegiatan
-                ,'TOR' => $req->tor
                 ,'A1' => $XA1
                 ,'A2' => $XA2
                 ,'A3' => $XA3
@@ -170,20 +184,116 @@ class REKATController extends Controller
     // Fungsi hapus data
     public function del(Request $req)
     {
+        // $select = DB::SELECT( DB::RAW("SELECT TOR FROM Tb_REKAT WHERE kd_keg = '$req->kd_kegiatan'"));
+        // $urlTOR = public_path().'/uploads/tor/'.$select['0']->TOR;
+        // if(file_exists($urlTOR)){
+        //     unlink($urlTOR);
+        // }
+        // return ;
+        RABKEG::where('rincian_kegiatan', $req->rk)->delete();
         Rekat::Where('id', $req->id)->delete();
         return response()->json(["OK DELETED"]);
     }
     
     public function lanjutRab(Request $req){
-        $jenis_rab = DB::SELECT( DB::RAW("SELECT jenis_rab FROM Tb_KODEFIKASI_JENISBELANJA WHERE akun = '$req->akunSPAN' ") );
-        if($jenis_rab['0']->jenis_rab == "RAB_PERALATAN"){
-            return route('rabper.index');
-        }else if($jenis_rab['0']->jenis_rab == "RAB_KEGIATAN"){
-            return route('rabkeg.index');
-        }else if($jenis_rab['0']->jenis_rab == "RAB_GEDUNG"){
-            return route('rabgdg.index');
+        $kode_akun = $req->akunSPAN;
+        $A1 = substr($kode_akun,0,1);
+        $A2 = substr($kode_akun,0,2);
+        $A3 = substr($kode_akun,0,3);
+        $A4 = substr($kode_akun,0,4);
+        $A5 = substr($kode_akun,0,5);
+        $TOR = $req->tor;
+
+        if($req->kd_ikk == "SILAHKAN PILIH" && $req->kd_program == "SILAHKAN PILIH" && $req->rincian_kegiatan == "SILAHKAN PILIH"){
+            $dataKODE_SK = DB::select( DB::raw("SELECT kd_sk FROM rangka WHERE nama_sk = '$req->rincian_komponen'"));
+
+            $data = [
+                'kd_ikk' =>  $req->kd_ikkSPAN
+                ,'indikator_kinerja_kegiatan' =>  $req->indikator_kinerja_kegiatan
+                ,'kd_program' => $req->kd_programSPAN  
+                ,'program' => $req->program 
+                ,'kd_keg' => $req->kd_kegiatanSPAN 
+                ,'rincian_kegiatan' => $req->rincian_kegiatanSPAN
+                ,'A1' => $A1
+                ,'A2' => $A2
+                ,'A3' => $A3
+                ,'A4' => $A4
+                ,'A5' => $A5
+                ,'kd_rk' =>$dataKODE_SK['0']->kd_sk
+                ,'rincian_komponen' => $req->rincian_komponen
+                ,'akun' => $req->akunSPAN
+                ,'tahun' => date("Y")
+            ];
+            Rekat::where('id', $req->id)->update($data);
+            $jenis_rab = DB::SELECT( DB::RAW("SELECT jenis_rab FROM Tb_KODEFIKASI_JENISBELANJA WHERE akun = '$req->akunSPAN' ") );
+            $dataRAB = [
+                "rincian_kegiatan" => $req->rincian_kegiatanSPAN,
+                "rincian_komponen" => $req->rincian_komponen,
+                "akun" => $req->akunSPAN
+            ];
+            if($jenis_rab['0']->jenis_rab == "RAB_PERALATAN"){
+                $insertRABALT = RABPER::create($dataRAB);
+                return route('rabper.index');
+            }else if($jenis_rab['0']->jenis_rab == "RAB_KEGIATAN"){
+                $insertRABKEG = RABKEG::create($dataRAB);
+                return route('rabkeg.index');
+                  // return $dataRAB;
+            }else if($jenis_rab['0']->jenis_rab == "RAB_GEDUNG"){
+                $insertRABGDG = RABGDG::create($dataRAB);
+                return route('rabgdg.index');
+            }else{
+                return "ERROR";
+            }
+            return array($jenis_rab, $req->akunSPAN);
+
         }else{
-            return "ERROR";
-        }
+            // KODEFIKASI UNTUK INSERT
+            $Xkode_akun = $req->akunSPAN;
+            $XA1 = substr($Xkode_akun,0,1);
+            $XA2 = substr($Xkode_akun,0,2);
+            $XA3 = substr($Xkode_akun,0,3);
+            $XA4 = substr($Xkode_akun,0,4);
+            $XA5 = substr($Xkode_akun,0,5);
+
+    $dataKODE_SK = DB::select( DB::raw("SELECT kd_sk FROM rangka WHERE nama_sk = '$req->rincian_komponen' AND kd_ak = '$req->akunSPAN' "));
+            $dataREQUEST = [
+                'kd_ikk' =>  $req->kd_ikkSPAN
+                ,'indikator_kinerja_kegiatan' =>  $req->indikator_kinerja_kegiatan
+                ,'kd_program' => $req->kd_program
+                ,'program' => $req->program 
+                ,'kd_keg' => $req->kd_kegiatanSPAN
+                ,'rincian_kegiatan' => $req->rincian_kegiatanSPAN
+                ,'A1' => $XA1
+                ,'A2' => $XA2
+                ,'A3' => $XA3
+                ,'A4' => $XA4
+                ,'A5' => $XA5
+                ,'kd_rk' => $dataKODE_SK['0']->kd_sk
+                ,'rincian_komponen' => $req->rincian_komponen
+                ,'akun' => $req->akunSPAN
+                ,'tahun' => date("Y")
+            ];
+            $insertREKAT = Rekat::updateOrCreate(["id" => $req->id], $dataREQUEST); // END DATA INSERT REKAT
+            $jenis_rab = DB::SELECT( DB::RAW("SELECT jenis_rab FROM Tb_KODEFIKASI_JENISBELANJA WHERE akun = '$req->akunSPAN' ") );
+            $dataRAB = [
+                "rincian_kegiatan" => $req->rincian_kegiatan,
+                "rincian_komponen" => $req->rincian_komponen,
+                "akun" => $req->akunSPAN
+            ];
+            if($jenis_rab['0']->jenis_rab == "RAB_PERALATAN"){
+                $insertRABALT = RABPER::create($dataRAB);
+                return route('rabper.index');
+            }else if($jenis_rab['0']->jenis_rab == "RAB_KEGIATAN"){
+                $insertRABKEG = RABKEG::create($dataRAB);
+                return route('rabkeg.index');
+                 // return array("ok",$dataREQUEST, $dataRAB);
+            }else if($jenis_rab['0']->jenis_rab == "RAB_GEDUNG"){
+                $insertRABGDG = RABGDG::create($dataRAB);
+                return route('rabgdg.index');
+            }else{
+                return "ERROR";
+            }
+            return array("last", $dataREQUEST);
+        }     
     }
 }

@@ -110,11 +110,11 @@ Tahun                       2023</pre>
                 <td> {{ $data->satuan }}</td>
                 <td class="kk_menkeu"> {{ $data->kk_mendikbud }}</td>
                 <td class="kk_menkeu"> {{ $data->kk_menkeu }}</td>
-                <td contenteditable="true"> {{ $data->tw_1 }}</td>
-                <td contenteditable="true"> {{ $data->tw_2 }}</td>
-                <td contenteditable="true"> {{ $data->tw_3 }}</td>
-                <td contenteditable="true"> {{ $data->tw_4 }}</td>
-                <td contenteditable="true"> {{ $data->bobot }}</td>  
+                <td> {{ $data->tw_1 }}</td>
+                <td> {{ $data->tw_2 }}</td>
+                <td> {{ $data->tw_3 }}</td>
+                <td> {{ $data->tw_4 }}</td>
+                <td> {{ $data->bobot }}</td>  
             </tr>
             @endforeach
         </tbody>

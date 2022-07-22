@@ -14,32 +14,62 @@
                 <div class="card-body">
                 <button id="btn_addRow" class="btn btn-primary mb-4"> Add New Row</button>
                 <div class="table-responsive">
-                <table class="tabel-rabper table table-bordered border mb-0" id="new-edit">
+                <table class="tabel-rabper table table-bordered border mb-0" >
                     <thead>
                           <tr>
-                            <td>Rincian Kegiatan</td>
-                            <td>Rincian Komponen</td>
-                            <td>Kebutuhan Kegiatan </td>
-                            <td>Akun</td>
-                            <td>Jenis Belanja</td>
-                            <td>Merk</td>
-                            <td>Type</td>
-                            <td>e-Catalog (url)</td>
-                            <td>Status Produk (lokal/impor)</td>
-                            <td>Berkefungsian Untuk</td>
-                            <td>kuantitas</td>
-                            <td>satuan</td>
-                            <td>Harga satuan(Rp)</td> 
-                            <td>Jumlah Biaya(Rp)</td>
+                            <th>id</th>
+                            <th>Rincian Kegiatan</th>
+                            <th>Rincian Komponen</th>
+                            <th>Akun</th>
+                            <th>Kebutuhan Kegiatan </th>
+                            <th>Jenis Belanja</th>
+                            <th>Merk</th>
+                            <th>Type</th>
+                            <th>e-Catalog (url)</th>
+                            <th>Status Produk (lokal/impor)</th>
+                            <th>Berkefungsian Untuk</th>
+                            <th>kuantitas</th>
+                            <th>satuan</th>
+                            <th>Harga satuan(Rp)</th> 
+                            <th>Jumlah Biaya(Rp)</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- Melakukan proses looping data yang dikirimin dari IKK Controller,
-                             untuk menampilkan data ke tabel disini menggunakan foreach 
-                             bisa juga pakai for(bla; bla; bla;), tapi lebih mudah pakai foreach 🤗
-                        --}}
-                   
-                        </tbody>
+                        @foreach ($RABPER as $data)
+                        <tr>
+                        <td> {{ $data->id }} </td>
+                        <td contenteditable="true"> {{ $data->rincian_kegiatan }}</td>
+                        <td contenteditable="true"> {{ $data->rincian_komponen }}</td>
+                        <td contenteditable="true"> {{ $data->akun }}</td>
+                        <td contenteditable="true"> {{ $data->kebutuhan_kegiatan }}</td>
+                        <td contenteditable="true"> {{ $data->jenis_belanja }}</td>
+                        <td contenteditable="true"> {{ $data->merk }}</td>
+                        <td contenteditable="true"> {{ $data->type }}</td>
+                        <td >
+                            <form id="form_catalog" enctype="multipart/form-data">
+                                <input type="file" name="file_catalog" id="file_catalog">
+                            </form> 
+                            <div class="wrap-text"><i class="mdi mdi-file-pdf fs-10 p-1"></i><span class="mt-1 fs-8" id="catalog_name"></span></div>
+                            <label id="LABELcatalog"> {{ $data->eCatalog }} </label>
+                        </td>
+                        <td contenteditable="true"> {{ $data->status_produk }}</td>
+                        <td contenteditable="true"> {{ $data->berkefungsian }}</td>
+                        <td contenteditable="true"> {{ $data->kuantitas }}</td>
+                        <td contenteditable="true"> {{ $data->satuan }}</td>
+                        <td contenteditable="true"> {{ $data->harga_satuan }}</td>
+                        <td contenteditable="true"> {{ $data->jumlah_biaya }}</td>
+                        <td> 
+                            <div class="btn-group">
+                            <span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span>
+                            <span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span>
+                            <span class="copy_btn"><i role="button" class="bg-success px-2 mx-1 py-2 fa-solid fe fe-copy"></i></span>
+                            <span class="add_btn"><i role="button" class="bg-warning px-2 mx-1 py-2 fa-solid fe fe-plus"></i></span>
+                            </div>
+                        </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                     </table>
                 </div>
             </div>

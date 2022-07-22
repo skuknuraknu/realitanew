@@ -23,16 +23,16 @@
                         <th>Kode Program</th>
                         <th>Program</th>
                         <th>Kode Kegiatan</th>
-                        <th>Rincian Kegiatan</th>
-                        <th>TOR</th>
+                        <th>Rincian<span style="visibility: hidden;">_</span>Kegiatan</th>
                         <th>Rincian Sub Komponen</th>
                         <th>akun</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach($rekat as $data)
-                    <tr>
+                    <tr id="rekat">
                         <td> {{ $data->id }} </td>
                         <td class="">
                             <select name="kd_ikk" type="text" class="kd_ikk bg-dark my-2 text-white d-inline form-control w-auto required">
@@ -54,33 +54,13 @@
                         <td>
                             <span class="d-block kd_kegiatanSPAN"> {{ $data->kd_keg }} </span> 
                         </td>
-                        <td class="kd_kegiatan">
-                            <div class="row">
-                            <div class="col-md-6"></div>
-                                <div class="col-md-6">
-                                    <div class="btn-group mt-2 mb-2">
-                                    <button type="button" class="px-1 py-1 btn btn-github btn-pill dropdown-toggle" data-bs-toggle="dropdown"> <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu list" role="menu">
-                                        <li class="dropdown-plus-title">
-                                            Pilih
-                                        <b class="fa fa-angle-up" aria-hidden="true"></b>
-                                        </li> 
-                                    </ul>
-                                </div>
-                            </div>
-                            </div>
+                        <td >
+                           <select name="kd_kegiatan"  style="width:200px" type="text" class="kd_kegiatan bg-dark my-2 text-white d-inline select2 w-auto required">
+                                <option value="SILAHKAN PILIH" selected="selected">Pilih</option>
+                            </select>
                             <span class="rincian_kegiatanSPAN"> {{ $data->rincian_kegiatan }} </span> 
                         </td>
-                        <td>
-                            <form id="torFORM" enctype="multipart/form-data">
-                            <input type="file" name="file" class="fu" id="fileInput" />
-                           {{--  <label for="fileInput" class="btn btn-default bg-secondary-gradient btn-sm btn-pill">
-                                <i class="fe fe-upload"></i>
-                            </label> --}}
-                            </form>
-                            <span class="kotak-pdf tag file-transparent-rounded tag-outline-pink py-1"><span><i class="mdi mdi-file-pdf fs-20 p-1"></i></span><span class="mt-1 fs-15 nama-file"></span> <a href="javascript:void(0)" class="ms-4 me-1 mt-2 leading-normal text-pink"><i class="fe fe-x hapus"></i></a></span>
-                        </td>
+                       
                         <td class="sk">      
                             <div class="row">
                                 <div class="col-md-6"></div>
@@ -109,6 +89,13 @@
                             <span class="akunSPAN"> {{ $data->akun }} </span>
                         </td>
                         <td>
+                            @if($data->verifikasi_perencanaan == "Approved" && $data->verifikasi_spi == "Approved")
+                            <span style="color:gold">Di Setejui</span>
+                            @else
+                            <span style="color:white">Belum Disetujui</span>
+                            @endif
+                        </td>
+                        <td>
                             <div class="btn-group">
                                 <span class="del_btn"><i role="button" class="bg-danger px-2 mx-1 py-2 fa-solid fe fe-trash-2"></i></span>
                                 <span class="save_btn"><i role="button" class="bg-info px-2 mx-1 py-2 fa-solid fe fe-check-circle"></i></span>
@@ -125,8 +112,7 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+</div>@endsection
 
 {{-- `https://stackoverflow.com/questions/44674255/how-to-use-directive-push-in-blade-template-laravel` --}}
 @push('yss')

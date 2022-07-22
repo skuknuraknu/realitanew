@@ -17,7 +17,6 @@ class Rekat extends Model
         ,"program"
         ,"kd_keg"
         ,"rincian_kegiatan"
-        ,"TOR"
         ,"A1"
         ,"A2"
         ,"A3"
@@ -25,6 +24,9 @@ class Rekat extends Model
         ,"A5"
         ,"kd_rk"
         ,"rincian_komponen"    
-        ,"akun"    
+        ,"akun"
+        ,"verifikasi_perencanaan"
+        ,"verifikasi_spi"
+        ,"tanggapan"
     ];
 }

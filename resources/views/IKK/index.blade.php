@@ -15,7 +15,7 @@
                 <div class="card-body">
                 <button id="btn_addRow" class="btn btn-primary mb-4"> Add New Row</button>
                 <div class="table-responsive">
-                <table class="tabel-ikk table table-bordered border mb-0" id="basic-datatable">
+                <table class="tabel-ikk table table-bordered border mb-0">
                     <thead>
                         <tr>
                             <th>id</th>
