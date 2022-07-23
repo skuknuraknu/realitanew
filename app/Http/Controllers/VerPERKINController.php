@@ -55,10 +55,10 @@ class VerPERKINController extends Controller
        ];
        $P = null;
        $data = VerPerkin::updateOrCreate(["kd_ikk" => $req->kd_ikk], $dataVERPerkin);
-       if($req->verifikasi_perencanaan == "Approved" && $req->verifikasi_spi == "Approved"){
+       if($req->verifikasi_perencanaan == "Setuju" && $req->verifikasi_spi == "Setuju"){
             $P = Perkin::where('kd_ikk', $req->kd_ikk)
            ->update([
-               'status' => "Approved"
+               'status' => "Di Setujui"
             ]);
            }
        $kd_ikk = $req->kd_ikk;
@@ -77,7 +77,7 @@ class VerPERKINController extends Controller
                 ['kd_ss' => 'SS_2.', 'sasaran' => 'Meningkatnya kualitas dosen pendidikan tinggi']
             );
        }
-       return 'ok';
+       return array("ok", $req->verifikasi_perencanaan, $req->verifikasi_spi);
        // return array($dataVERPerkin);
     }
 }

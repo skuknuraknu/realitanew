@@ -1,8 +1,5 @@
 {{-- Inherit dari file layout.blade.php --}}
 @extends('layout.layout')
- {{-- mendefinisikan title dari halaman ini yang asalnya dari 
-      file master layout.blade.php pada baris `13` (yield) 
-      baca lebih lanjut `https://www.malasngoding.com/sistem-template-blade-laravel/fungsi-yield-pada-laravel` --}}
 @section('title', 'PERKIN')
 @section('content')
     <div class="row mt-5">

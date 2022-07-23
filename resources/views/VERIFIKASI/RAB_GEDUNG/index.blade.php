@@ -71,20 +71,55 @@
                         <td contenteditable="true"> {{ $data->lainnya }}</td>
                         <td contenteditable="true"> {{ $data->kesesuaian_gedung }}</td>
                         {{-- ====> sertifikat --}}
-                        <td> </td>
+                        <td> 
+                            <a class="modal-effect btn btn-info d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modalAmdal">Pdf</a>
+                            <div class="modal fade" id="modalAmdal"> <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document"><div class="modal-content modal-content-demo">
+                                <div class="modal-header"><h6 class="modal-title">Dokumen Sertifikat</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button></div>
+                                    <div class="modal-body"><object width="600" height="500" data="{{ asset('uploads/Rab_Gedung/Sertifikat/'.$data->sertifikat) }}" type="application/pdf"></object> </div><div class="modal-footer"> <button class="btn btn-light" data-bs-dismiss="modal">Close</button></div></div></div></div>
+                        </td>
                         {{-- ====> simak bmn --}}
-                        <td> </td>
+                        <td>
+                            <a class="modal-effect btn btn-info d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modalAmdal">Pdf</a>
+                            <div class="modal fade" id="modalAmdal"> <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document"><div class="modal-content modal-content-demo">
+                                <div class="modal-header"><h6 class="modal-title">Dokumen SIMAK BMN</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button></div>
+                                    <div class="modal-body"><object width="600" height="500" data="{{ asset('uploads/Rab_Gedung/SIMAK_BMN/'.$data->simak_BMN) }}" type="application/pdf"></object> </div><div class="modal-footer"> <button class="btn btn-light" data-bs-dismiss="modal">Close</button></div></div></div></div>
+                        </td>
                         {{-- ====> pupr --}}
-                        <td></td>
+                        <td>
+                            <a class="modal-effect btn btn-info d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modalAmdal">Pdf</a>
+                            <div class="modal fade" id="modalAmdal"> <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document"><div class="modal-content modal-content-demo">
+                                <div class="modal-header"><h6 class="modal-title">Dokumen ANALISIS KEMENTERIAN PUPR</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button></div>
+                                    <div class="modal-body"><object width="600" height="500" data="{{ asset('uploads/Rab_Gedung/PUPR/'.$data->PUPR) }}" type="application/pdf"></object> </div><div class="modal-footer"> <button class="btn btn-light" data-bs-dismiss="modal">Close</button></div></div></div></div>
+                        </td>
                          {{-- ====> imb --}}
-                        <td> </td>
+                        <td> <a class="modal-effect btn btn-info d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modalAmdal">Pdf</a>
+                            <div class="modal fade" id="modalAmdal"> <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document"><div class="modal-content modal-content-demo">
+                                <div class="modal-header"><h6 class="modal-title">Dokumen IMB</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button></div>
+                                    <div class="modal-body"><object width="600" height="500" data="{{ asset('uploads/Rab_Gedung/DOKUMEN_IMB/'.$data->dokumen_IMB) }}" type="application/pdf"></object> </div><div class="modal-footer"> <button class="btn btn-light" data-bs-dismiss="modal">Close</button></div></div></div></div>
+                            </td>
                          {{-- ====> amdal --}}
-                        <td> </td>
+                        <td>  <a class="modal-effect btn btn-info d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modalAmdal">Pdf</a>
+                            <div class="modal fade" id="modalAmdal"> <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document"><div class="modal-content modal-content-demo">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title">Dokumen AMDAL</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button></div>
+                                    <div class="modal-body">
+                                    <object width="600" height="500" data="{{ asset('uploads/Rab_Gedung/AMDAL/'.$data->dokumen_AMDAL) }}" type="application/pdf">
+                                    </object> </div>
+                                        <div class="modal-footer"> <button class="btn btn-light" data-bs-dismiss="modal">Close</button></div></div></div></div>
+                        </td>
                         {{-- ====> rks --}}
                         <td>
-                            {{-- <object data="{{ asset('uploads/Rab_Gedung/RKS/'.$data->dokumen_RKS) }}" type="application/pdf">
-                            <div>No online PDF viewer installed</div>
-                        </object> --}}
+                            <a class="modal-effect btn btn-info d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modaldemo8">Pdf</a>
+                            <div class="modal fade" id="modaldemo8"> <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document"><div class="modal-content modal-content-demo">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title">Dokumen rks</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                    <object width="600" height="500" data="{{ asset('uploads/Rab_Gedung/RKS/'.$data->dokumen_RKS) }}" type="application/pdf">
+                                    </object> </div>
+                                        <div class="modal-footer"> <button class="btn btn-light" data-bs-dismiss="modal">Close</button></div></div>
+                                </div>
+                            </div>
                      </td>
                         <td contenteditable="true"> {{ $data->DED_AWAL }}</td>
                         <td contenteditable="true"> {{ $data->DED_REVIEW}}</td>
@@ -94,12 +129,26 @@
                         <td contenteditable="true"> {{ $data->nilai_landscape  }}</td>
                         <td contenteditable="true"> {{ $data->nilai_pengawasan  }}</td>
                         {{-- ====> proposal project --}}
-                        <td> </td>
+                        <td> 
+                            <a class="modal-effect btn btn-info d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modalAmdal">Pdf</a>
+                            <div class="modal fade" id="modalAmdal"> <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document"><div class="modal-content modal-content-demo">
+                                <div class="modal-header"><h6 class="modal-title">Dokumen PROPOSAL PROJECT</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button></div>
+                                    <div class="modal-body"><object width="600" height="500" data="{{ asset('uploads/Rab_Gedung/PROPOSAL_PROJECT/'.$data->proposal_project) }}" type="application/pdf"></object> </div><div class="modal-footer"> <button class="btn btn-light" data-bs-dismiss="modal">Close</button></div></div></div></div>
+                        </td>
                         {{-- ====> rab detail --}}
-                        <td> </td>
+                        <td> 
+                            <a class="modal-effect btn btn-info d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modalAmdal">Pdf</a>
+                            <div class="modal fade" id="modalAmdal"> <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document"><div class="modal-content modal-content-demo">
+                                <div class="modal-header"><h6 class="modal-title">Dokumen RAB DETAIL</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button></div>
+                                    <div class="modal-body"><object width="600" height="500" data="{{ asset('uploads/Rab_Gedung/RAB_DETAIL/'.$data->rab_detail) }}" type="application/pdf"></object> </div><div class="modal-footer"> <button class="btn btn-light" data-bs-dismiss="modal">Close</button></div></div></div></div>
+                        </td>
                         {{-- ====> perencanaan gambar --}}
-                        <td> </div>
-                        <label id="LABELperencanaan"> {{ $data->perencanaan_gambar }}</label></td>
+                        <td> 
+                            <a class="modal-effect btn btn-info d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modalAmdal">Pdf</a>
+                            <div class="modal fade" id="modalAmdal"> <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document"><div class="modal-content modal-content-demo">
+                                <div class="modal-header"><h6 class="modal-title">Dokumen PERENCANAAN GAMBAR</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button></div>
+                                    <div class="modal-body"><object width="600" height="500" data="{{ asset('uploads/Rab_Gedung/PERENCANAAN_GAMBAR/'.$data->perencanaan_gambar) }}" type="application/pdf"></object> </div><div class="modal-footer"> <button class="btn btn-light" data-bs-dismiss="modal">Close</button></div></div></div></div>
+                       </td>
                         <td contenteditable="true"> {{ $data->jumlah_nilai }}</td>
                         <td>
                             <select name="verifikasi_perencanaan"  style="width:200px" type="text" class="verifikasi_perencanaan bg-dark my-2 text-white d-inline select2 w-auto required">

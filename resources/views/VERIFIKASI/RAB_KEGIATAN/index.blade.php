@@ -56,7 +56,12 @@
                         <td>{{ $data->jumlah_biaya}}</td>
                         <td>{{ $data->PNBP_Uniker}}</td>
                         <td>{{ $data->PNBP_Univ}}</td>
-                        <td>{{ $data->tor }} </td>
+                        <td>
+                            <a class="modal-effect btn btn-info d-grid mb-3" data-bs-effect="effect-newspaper" data-bs-toggle="modal" href="#modalAmdal">Pdf</a>
+                            <div class="modal fade" id="modalAmdal"> <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document"><div class="modal-content modal-content-demo">
+                                <div class="modal-header"><h6 class="modal-title">Dokumen TOR</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button></div>
+                                    <div class="modal-body"><object width="600" height="500" data="{{ asset('uploads/tor/'.$data->tor) }}" type="application/pdf"></object> </div><div class="modal-footer"> <button class="btn btn-light" data-bs-dismiss="modal">Close</button></div></div></div></div>
+                        </td>
                         <td>
                             <select name="verifikasi_perencanaan"  style="width:200px" type="text" class="verifikasi_perencanaan bg-dark my-2 text-white d-inline select2 w-auto required">
                                 <option value="SILAHKAN PILIH" selected="selected">Pilih</option>

@@ -38,15 +38,9 @@
         		let tw_4 						= setiapBaris[8] 
         		let jumlah_bobot				= setiapBaris[9]
         		let tanggapan				    = setiapBaris[13]
-        		let verifikasi_perencanaan		= $(this).closest('tr').find('#status_perencanaan').text()
-        		let verifikasi_spi				= $(this).closest('tr').find('#status_spi').text()
-                //akhir dari pendefinisian variabel
-
-                /*
-				Mengirim data yang nantinya akan diproses ke server melalui route `ikk.add` melalui ajax(Disinilah ajax diperlukan)
-				`ikk.add` sudah didefinisikan di folder routes/web.php 
-				baca lebih lanjut `https://www.maribelajarcoding.com/2019/12/crud-php-ajax-sederhana.html`
-                */
+        		let verifikasi_perencanaan		= $(this).closest('tr').find('select.verifikasi_perencanaan').val()
+        		let verifikasi_spi				= $(this).closest('tr').find('select.verifikasi_spi').val()
+                
 	            $.ajax({
 	            	/* INSERT | UPDATE | DELETE => POST
 	            	   READ       	   			=> GET
@@ -76,14 +70,14 @@
 	                },
 	                //kalo respon dari server sukses :
                     success:function(data){
-                    	Swal.fire({
-						  icon: 'success',
-						  title: 'BERHASIL MENYIMPAN DATA TERSEBUT',
-						  showConfirmButton: false,
-						  timer: 1200
-						})
-                    	window.location.reload()        
-                    	// console.log(data) 
+                    	// Swal.fire({
+						//   icon: 'success',
+						//   title: 'BERHASIL MENYIMPAN DATA TERSEBUT',
+						//   showConfirmButton: false,
+						//   timer: 1200
+						// })
+                    	// window.location.reload()        
+                    	console.log(data) 
                     },
                     //kalo respon dari server error :
                     error: function (request, status, error) {

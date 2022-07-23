@@ -56,53 +56,20 @@
                                         </td>
                                         <td class="bobot"> {{ $data->bobot }}</td>
                                         <td>
-                                            <div class="row">
-                                                <div class="col-md-6"></div>
-                                                <div class="col-md-6">
-                                                    <div class="btn-group mt-2 mb-2">
-                                                        <button type="button"
-                                                            class="px-1 py-1 btn btn-github btn-pill dropdown-toggle"
-                                                            data-bs-toggle="dropdown"> <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu" role="menu">
-                                                            <li class="dropdown-plus-title">
-                                                                Pilih
-                                                                <b class="fa fa-angle-up" aria-hidden="true"></b>
-                                                            </li>
-                                                            <li id="ver_perencanaan"><a
-                                                                    href="javascript:void(0)">Approved</a></li>
-                                                            <li id="ver_perencanaan"><a href="javascript:void(0)">Not
-                                                                    approved</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <select name="verifikasi_perencanaan"  style="width:200px" type="text" class="verifikasi_perencanaan bg-dark my-2 text-white d-inline select2 w-auto required">
+                                                <option value="SILAHKAN PILIH" selected="selected">Pilih</option>
+                                                <option value="Setuju">Setuju</option>
+                                                <option value="Tolak">Tolak</option>
+                                            </select>
                                             <span id="status_perencanaan">{{ $data->verifikasi_perencanaan }}</span>
                                         </td>
                                         <td>
-                                            <div class="row">
-                                                <div class="col-md-6"></div>
-                                                <div class="col-md-6">
-                                                    <div class="btn-group mt-2 mb-2">
-                                                        <button type="button"
-                                                            class="px-1 py-1 btn btn-github btn-pill dropdown-toggle"
-                                                            data-bs-toggle="dropdown"> <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu" role="menu">
-                                                            <li class="dropdown-plus-title">
-                                                                Pilih
-                                                                <b class="fa fa-angle-up" aria-hidden="true"></b>
-                                                            </li>
-                                                            <li id="ver_spi"><a href="javascript:void(0)">Approved</a>
-                                                            </li>
-                                                            <li id="ver_spi"><a href="javascript:void(0)">Not approved</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <select name="verifikasi_spi"  style="width:200px" type="text" class="verifikasi_spi bg-dark my-2 text-white d-inline select2 w-auto required">
+                                                <option value="SILAHKAN PILIH" selected="selected">Pilih</option>
+                                                <option value="Setuju">Setuju</option>
+                                                <option value="Tolak">Tolak</option>
+                                            </select>
                                             <span id="status_spi">{{ $data->verifikasi_spi }}</span>
-
                                         </td>
                                         <td class="tanggapan" contenteditable="true"> {{ $data->tanggapan }}</td>
                                         <td>

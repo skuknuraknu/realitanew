@@ -7,8 +7,8 @@ $(document).ready(function() {
 	$(document).on('click',".save_btn", function(e){
 		let setiapBaris 				=  $(this).closest('tr')[0].innerText.split("\t").slice(0, -1)
 		let id 							= setiapBaris[0]
-		let verifikasi_perencanaan		= $(this).closest('tr').find('#status_perencanaan').text().replace(/\n|\r/g, "")
-		let verifikasi_spi				= $(this).closest('tr').find('#status_spi').text().replace(/\n|\r/g, "")
+		let verifikasi_perencanaan		= $(this).closest('tr').find('select.verifikasi_perencanaan').val()
+		let verifikasi_spi				= $(this).closest('tr').find('select.verifikasi_spi').val()
 		let tanggapan					= setiapBaris[8]
 		$.ajax({
 	        type:'POST',

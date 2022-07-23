@@ -3,6 +3,11 @@ $(document).ready(function() {
 	$('.tabel-verkeg ').DataTable({
 			"ordering" : false
 		});
+	// -- Toggle pdf
+	$( document ).on('click', '#btna', function(e){
+		$('#ursa').toggle()
+	})
+	// Toggle pdf --
 	// -- Tombol tambah
 	$(document).on('click',".save_btn", function(e){
 		let setiapBaris 				=  $(this).closest('tr')[0].innerText.split("\t").slice(0, -1)

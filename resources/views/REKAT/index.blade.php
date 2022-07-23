@@ -89,7 +89,7 @@
                             <span class="akunSPAN"> {{ $data->akun }} </span>
                         </td>
                         <td>
-                            @if($data->verifikasi_perencanaan == "Approved" && $data->verifikasi_spi == "Approved")
+                            @if($data->verifikasi_perencanaan == "Setuju" && $data->verifikasi_spi == "Setuju")
                             <span style="color:gold">Di Setejui</span>
                             @else
                             <span style="color:white">Belum Disetujui</span>
